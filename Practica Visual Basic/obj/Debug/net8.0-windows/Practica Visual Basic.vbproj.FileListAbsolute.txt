@@ -1,0 +1,41 @@
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\bin\Debug\net8.0-windows\Practica Visual Basic.exe
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\bin\Debug\net8.0-windows\Practica Visual Basic.dll.config
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\bin\Debug\net8.0-windows\Practica Visual Basic.deps.json
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\bin\Debug\net8.0-windows\Practica Visual Basic.runtimeconfig.json
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\bin\Debug\net8.0-windows\Practica Visual Basic.dll
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\bin\Debug\net8.0-windows\Practica Visual Basic.pdb
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\bin\Debug\net8.0-windows\BouncyCastle.Cryptography.dll
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\bin\Debug\net8.0-windows\Google.Protobuf.dll
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\bin\Debug\net8.0-windows\K4os.Compression.LZ4.dll
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\bin\Debug\net8.0-windows\K4os.Compression.LZ4.Streams.dll
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\bin\Debug\net8.0-windows\K4os.Hash.xxHash.dll
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\bin\Debug\net8.0-windows\MySql.Data.dll
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\bin\Debug\net8.0-windows\System.IO.Pipelines.dll
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\bin\Debug\net8.0-windows\ZstdSharp.dll
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\bin\Debug\net8.0-windows\runtimes\win-x64\native\comerr64.dll
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\bin\Debug\net8.0-windows\runtimes\win-x64\native\gssapi64.dll
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\bin\Debug\net8.0-windows\runtimes\win-x64\native\k5sprt64.dll
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\bin\Debug\net8.0-windows\runtimes\win-x64\native\krb5_64.dll
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\bin\Debug\net8.0-windows\runtimes\win-x64\native\krbcc64.dll
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows\Practica Visual Basic.vbproj.AssemblyReference.cache
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows\Practica Visual Basic.vbproj.GenerateResource.cache
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows\Practica Visual Basic.GeneratedMSBuildEditorConfig.editorconfig
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows\Practica Visual Basic.AssemblyInfoInputs.cache
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows\Practica Visual Basic.AssemblyInfo.vb
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows\Practica Visual Basic.vbproj.CoreCompileInputs.cache
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows\Practica.A4F22ADF.Up2Date
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows\Practica Visual Basic.dll
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows\refint\Practica Visual Basic.dll
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows\Practica Visual Basic.pdb
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows\Practica Visual Basic.genruntimeconfig.cache
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows\ref\Practica Visual Basic.dll
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows\Practica_Visual_Basic.FormProductos.resources
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows\Practica_Visual_Basic.FormProveedores.resources
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows\Practica_Visual_Basic.FormClientes.resources
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows\Practica_Visual_Basic.FormCompras.resources
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows\Practica_Visual_Basic.FormDetalleCompras.resources
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows\Practica_Visual_Basic.FormDetalleVentas.resources
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows\Practica_Visual_Basic.FormLogin.resources
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows\Practica_Visual_Basic.FormMenuPrincipal.resources
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows\Practica_Visual_Basic.FormUsuarios.resources
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows\Practica_Visual_Basic.FormVentas.resources
