@@ -3,7 +3,7 @@
 Public Class FormMenuPrincipal
     Dim conexion As MySqlConnection
 
-    Private Sub Bt_Proveedores_Click(sender As Object, e As EventArgs) Handles btReporteExistencias.Click
+    Private Sub Bt_Proveedores_Click(sender As Object, e As EventArgs)
 
     End Sub
 
