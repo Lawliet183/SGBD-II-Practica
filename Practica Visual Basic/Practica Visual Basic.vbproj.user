@@ -1,19 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Compile Update="FormCatalogoClientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormCatalogoProductos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormCatalogoProveedores.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FormClientes.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormCompras.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormDetalleCompras.vb">
+    <Compile Update="FormLoginBD.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormDetalleVentas.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="FormLogin.vb">
+    <Compile Update="FormLoginUsuario.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormMenuPrincipal.vb">
@@ -25,11 +31,46 @@
     <Compile Update="FormProveedores.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FormReporteGanancias.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FormUsuarios.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormVentas.vb">
       <SubType>Form</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="FormCatalogoProductos.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="FormClientes.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="FormCompras.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="FormLoginBD.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="FormLoginUsuario.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="FormMenuPrincipal.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="FormProductos.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="FormProveedores.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="FormUsuarios.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="FormVentas.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

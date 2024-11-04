@@ -1,4 +1,6 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿Imports System
+Imports System.Windows.Forms
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormProductos
     Inherits System.Windows.Forms.Form
 
@@ -43,6 +45,7 @@ Partial Class FormProductos
         Label7 = New Label()
         Label8 = New Label()
         Label9 = New Label()
+        btSalir = New Button()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -218,11 +221,21 @@ Partial Class FormProductos
         Label9.TabIndex = 21
         Label9.Text = "ID de proveedor:"
         ' 
+        ' btSalir
+        ' 
+        btSalir.Location = New Point(586, 362)
+        btSalir.Name = "btSalir"
+        btSalir.Size = New Size(94, 29)
+        btSalir.TabIndex = 22
+        btSalir.Text = "Salir"
+        btSalir.UseVisualStyleBackColor = True
+        ' 
         ' FormProductos
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 558)
+        Controls.Add(btSalir)
         Controls.Add(Label9)
         Controls.Add(Label8)
         Controls.Add(Label7)
@@ -272,4 +285,5 @@ Partial Class FormProductos
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
+    Friend WithEvents btSalir As Button
 End Class

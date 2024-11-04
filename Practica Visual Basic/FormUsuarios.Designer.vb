@@ -1,4 +1,6 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿Imports System
+Imports System.Windows.Forms
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormUsuarios
     Inherits System.Windows.Forms.Form
 
@@ -33,6 +35,7 @@ Partial Class FormUsuarios
         Label1 = New Label()
         Label2 = New Label()
         Label3 = New Label()
+        btSalir = New Button()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -66,6 +69,7 @@ Partial Class FormUsuarios
         ct_password.Name = "ct_password"
         ct_password.Size = New Size(173, 27)
         ct_password.TabIndex = 3
+        ct_password.UseSystemPasswordChar = True
         ' 
         ' ct_rol
         ' 
@@ -128,11 +132,21 @@ Partial Class FormUsuarios
         Label3.TabIndex = 10
         Label3.Text = "Rol:"
         ' 
+        ' btSalir
+        ' 
+        btSalir.Location = New Point(563, 348)
+        btSalir.Name = "btSalir"
+        btSalir.Size = New Size(94, 29)
+        btSalir.TabIndex = 11
+        btSalir.Text = "Salir"
+        btSalir.UseVisualStyleBackColor = True
+        ' 
         ' FormUsuarios
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(800, 450)
+        ClientSize = New Size(800, 408)
+        Controls.Add(btSalir)
         Controls.Add(Label3)
         Controls.Add(Label2)
         Controls.Add(Label1)
@@ -162,4 +176,5 @@ Partial Class FormUsuarios
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
+    Friend WithEvents btSalir As Button
 End Class

@@ -1,4 +1,5 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+﻿Imports System.Windows.Forms
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormMenuPrincipal
     Inherits System.Windows.Forms.Form
 
@@ -38,9 +39,9 @@ Partial Class FormMenuPrincipal
         ExistenciasAlMinimoToolStripMenuItem = New ToolStripMenuItem()
         ExistenciasToolStripMenuItem = New ToolStripMenuItem()
         ToolStripDropDownButton1 = New ToolStripDropDownButton()
-        ProductosToolStripMenuItem1 = New ToolStripMenuItem()
-        ClientesToolStripMenuItem1 = New ToolStripMenuItem()
-        VendedoresToolStripMenuItem = New ToolStripMenuItem()
+        CatalogoProductosToolStripMenuItem = New ToolStripMenuItem()
+        CatalogoClientesToolStripMenuItem = New ToolStripMenuItem()
+        CatalogoProveedoresToolStripMenuItem = New ToolStripMenuItem()
         ToolStrip1.SuspendLayout()
         SuspendLayout()
         ' 
@@ -50,7 +51,7 @@ Partial Class FormMenuPrincipal
         ToolStrip1.Items.AddRange(New ToolStripItem() {ToolStripDropDownButton3, ToolStripDropDownButton2, ToolStripDropDownButton1})
         ToolStrip1.Location = New Point(0, 0)
         ToolStrip1.Name = "ToolStrip1"
-        ToolStrip1.Size = New Size(739, 27)
+        ToolStrip1.Size = New Size(1083, 27)
         ToolStrip1.TabIndex = 0
         ToolStrip1.Text = "ToolStrip1"
         ' 
@@ -67,37 +68,37 @@ Partial Class FormMenuPrincipal
         ' ClientesToolStripMenuItem
         ' 
         ClientesToolStripMenuItem.Name = "ClientesToolStripMenuItem"
-        ClientesToolStripMenuItem.Size = New Size(224, 26)
+        ClientesToolStripMenuItem.Size = New Size(174, 26)
         ClientesToolStripMenuItem.Text = "Clientes"
         ' 
         ' ComprasToolStripMenuItem
         ' 
         ComprasToolStripMenuItem.Name = "ComprasToolStripMenuItem"
-        ComprasToolStripMenuItem.Size = New Size(224, 26)
+        ComprasToolStripMenuItem.Size = New Size(174, 26)
         ComprasToolStripMenuItem.Text = "Compras"
         ' 
         ' ProductosToolStripMenuItem
         ' 
         ProductosToolStripMenuItem.Name = "ProductosToolStripMenuItem"
-        ProductosToolStripMenuItem.Size = New Size(224, 26)
+        ProductosToolStripMenuItem.Size = New Size(174, 26)
         ProductosToolStripMenuItem.Text = "Productos"
         ' 
         ' ProveedoresToolStripMenuItem
         ' 
         ProveedoresToolStripMenuItem.Name = "ProveedoresToolStripMenuItem"
-        ProveedoresToolStripMenuItem.Size = New Size(224, 26)
+        ProveedoresToolStripMenuItem.Size = New Size(174, 26)
         ProveedoresToolStripMenuItem.Text = "Proveedores"
         ' 
         ' UsuariosToolStripMenuItem
         ' 
         UsuariosToolStripMenuItem.Name = "UsuariosToolStripMenuItem"
-        UsuariosToolStripMenuItem.Size = New Size(224, 26)
+        UsuariosToolStripMenuItem.Size = New Size(174, 26)
         UsuariosToolStripMenuItem.Text = "Usuarios"
         ' 
         ' VentasToolStripMenuItem
         ' 
         VentasToolStripMenuItem.Name = "VentasToolStripMenuItem"
-        VentasToolStripMenuItem.Size = New Size(224, 26)
+        VentasToolStripMenuItem.Size = New Size(174, 26)
         VentasToolStripMenuItem.Text = "Ventas"
         ' 
         ' ToolStripDropDownButton2
@@ -143,41 +144,42 @@ Partial Class FormMenuPrincipal
         ' ToolStripDropDownButton1
         ' 
         ToolStripDropDownButton1.DisplayStyle = ToolStripItemDisplayStyle.Text
-        ToolStripDropDownButton1.DropDownItems.AddRange(New ToolStripItem() {ProductosToolStripMenuItem1, ClientesToolStripMenuItem1, VendedoresToolStripMenuItem})
+        ToolStripDropDownButton1.DropDownItems.AddRange(New ToolStripItem() {CatalogoProductosToolStripMenuItem, CatalogoClientesToolStripMenuItem, CatalogoProveedoresToolStripMenuItem})
         ToolStripDropDownButton1.Image = CType(resources.GetObject("ToolStripDropDownButton1.Image"), Image)
         ToolStripDropDownButton1.ImageTransparentColor = Color.Magenta
         ToolStripDropDownButton1.Name = "ToolStripDropDownButton1"
         ToolStripDropDownButton1.Size = New Size(90, 24)
         ToolStripDropDownButton1.Text = "Catalogos"
         ' 
-        ' ProductosToolStripMenuItem1
+        ' CatalogoProductosToolStripMenuItem
         ' 
-        ProductosToolStripMenuItem1.Name = "ProductosToolStripMenuItem1"
-        ProductosToolStripMenuItem1.Size = New Size(170, 26)
-        ProductosToolStripMenuItem1.Text = "Productos"
+        CatalogoProductosToolStripMenuItem.Name = "CatalogoProductosToolStripMenuItem"
+        CatalogoProductosToolStripMenuItem.Size = New Size(224, 26)
+        CatalogoProductosToolStripMenuItem.Text = "Productos"
         ' 
-        ' ClientesToolStripMenuItem1
+        ' CatalogoClientesToolStripMenuItem
         ' 
-        ClientesToolStripMenuItem1.Name = "ClientesToolStripMenuItem1"
-        ClientesToolStripMenuItem1.Size = New Size(170, 26)
-        ClientesToolStripMenuItem1.Text = "Clientes"
+        CatalogoClientesToolStripMenuItem.Name = "CatalogoClientesToolStripMenuItem"
+        CatalogoClientesToolStripMenuItem.Size = New Size(224, 26)
+        CatalogoClientesToolStripMenuItem.Text = "Clientes"
         ' 
-        ' VendedoresToolStripMenuItem
+        ' CatalogoProveedoresToolStripMenuItem
         ' 
-        VendedoresToolStripMenuItem.Name = "VendedoresToolStripMenuItem"
-        VendedoresToolStripMenuItem.Size = New Size(170, 26)
-        VendedoresToolStripMenuItem.Text = "Vendedores"
+        CatalogoProveedoresToolStripMenuItem.Name = "CatalogoProveedoresToolStripMenuItem"
+        CatalogoProveedoresToolStripMenuItem.Size = New Size(224, 26)
+        CatalogoProveedoresToolStripMenuItem.Text = "Proveedores"
         ' 
         ' FormMenuPrincipal
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = SystemColors.Control
-        ClientSize = New Size(739, 527)
+        ClientSize = New Size(1083, 658)
         Controls.Add(ToolStrip1)
+        IsMdiContainer = True
         Margin = New Padding(2)
         Name = "FormMenuPrincipal"
-        Text = "MenuPrincipal"
+        Text = "Menu Principal"
         ToolStrip1.ResumeLayout(False)
         ToolStrip1.PerformLayout()
         ResumeLayout(False)
@@ -199,8 +201,8 @@ Partial Class FormMenuPrincipal
     Friend WithEvents GananciasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExistenciasAlMinimoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExistenciasToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ProductosToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents ClientesToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents VendedoresToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CatalogoProductosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CatalogoClientesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CatalogoProveedoresToolStripMenuItem As ToolStripMenuItem
 
 End Class

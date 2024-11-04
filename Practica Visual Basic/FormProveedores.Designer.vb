@@ -1,4 +1,6 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+﻿Imports System
+Imports System.Windows.Forms
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormProveedores
     Inherits System.Windows.Forms.Form
 
@@ -46,13 +48,13 @@ Partial Class FormProveedores
         DataGridView1.Margin = New Padding(2)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersWidth = 62
-        DataGridView1.Size = New Size(618, 178)
+        DataGridView1.Size = New Size(671, 178)
         DataGridView1.TabIndex = 0
         ' 
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Location = New Point(30, 229)
+        Label1.Location = New Point(30, 241)
         Label1.Margin = New Padding(2, 0, 2, 0)
         Label1.Name = "Label1"
         Label1.Size = New Size(67, 20)
@@ -62,7 +64,7 @@ Partial Class FormProveedores
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(22, 258)
+        Label2.Location = New Point(22, 272)
         Label2.Margin = New Padding(2, 0, 2, 0)
         Label2.Name = "Label2"
         Label2.Size = New Size(75, 20)
@@ -72,7 +74,7 @@ Partial Class FormProveedores
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(27, 288)
+        Label3.Location = New Point(27, 303)
         Label3.Margin = New Padding(2, 0, 2, 0)
         Label3.Name = "Label3"
         Label3.Size = New Size(70, 20)
@@ -82,7 +84,7 @@ Partial Class FormProveedores
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(40, 320)
+        Label4.Location = New Point(40, 334)
         Label4.Margin = New Padding(2, 0, 2, 0)
         Label4.Name = "Label4"
         Label4.Size = New Size(57, 20)
@@ -91,7 +93,7 @@ Partial Class FormProveedores
         ' 
         ' ct_idproveedor
         ' 
-        ct_idproveedor.Location = New Point(101, 194)
+        ct_idproveedor.Location = New Point(101, 207)
         ct_idproveedor.Margin = New Padding(2)
         ct_idproveedor.Name = "ct_idproveedor"
         ct_idproveedor.Size = New Size(226, 27)
@@ -100,7 +102,7 @@ Partial Class FormProveedores
         ' 
         ' ct_nombre
         ' 
-        ct_nombre.Location = New Point(101, 226)
+        ct_nombre.Location = New Point(101, 238)
         ct_nombre.Margin = New Padding(2)
         ct_nombre.Name = "ct_nombre"
         ct_nombre.Size = New Size(226, 27)
@@ -108,7 +110,7 @@ Partial Class FormProveedores
         ' 
         ' ct_direccion
         ' 
-        ct_direccion.Location = New Point(101, 255)
+        ct_direccion.Location = New Point(101, 269)
         ct_direccion.Margin = New Padding(2)
         ct_direccion.Name = "ct_direccion"
         ct_direccion.Size = New Size(226, 27)
@@ -116,7 +118,7 @@ Partial Class FormProveedores
         ' 
         ' ct_telefono
         ' 
-        ct_telefono.Location = New Point(101, 285)
+        ct_telefono.Location = New Point(101, 300)
         ct_telefono.Margin = New Padding(2)
         ct_telefono.Name = "ct_telefono"
         ct_telefono.Size = New Size(226, 27)
@@ -124,7 +126,7 @@ Partial Class FormProveedores
         ' 
         ' ct_correo
         ' 
-        ct_correo.Location = New Point(101, 317)
+        ct_correo.Location = New Point(101, 331)
         ct_correo.Margin = New Padding(2)
         ct_correo.Name = "ct_correo"
         ct_correo.Size = New Size(226, 27)
@@ -174,7 +176,7 @@ Partial Class FormProveedores
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(640, 360)
+        ClientSize = New Size(693, 386)
         Controls.Add(btsalir)
         Controls.Add(btborrar)
         Controls.Add(btguardar)

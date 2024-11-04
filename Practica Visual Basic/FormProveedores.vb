@@ -1,26 +1,22 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.Windows.Forms
+Imports MySql.Data.MySqlClient
 
 Public Class FormProveedores
 
     Dim conexion As New MySqlConnection
 
     Private Sub FormProveedores_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'conexion = Conectar()
+        conexion = FormMenuPrincipal.ConseguirConexion()
         Dim SQL As String = "SELECT * from Proveedores"
         DataGridView1.DataSource = Cargar_grid(SQL, conexion)
     End Sub
 
     Private Sub bt_nuevo_Click(sender As Object, e As EventArgs) Handles btnuevo.Click
-        Me.ct_idproveedor.Text = ""
-        Me.ct_nombre.Text = ""
-        Me.ct_direccion.Text = ""
-        Me.ct_telefono.Text = ""
-        Me.ct_correo.Text = ""
-
-        Me.ct_nombre.Focus()
+        LimpiarTexto()
     End Sub
 
     Private Sub bt_guardar_Click(sender As Object, e As EventArgs) Handles btguardar.Click
+        ' Revisar que todos los campos contengan algo antes de continuar
         If ct_nombre.Text = "" Then
             MessageBox.Show("Digite el nombre del proveedor")
             ct_nombre.Focus()
@@ -59,6 +55,7 @@ Public Class FormProveedores
         End If
 
 
+        ' Orden SQL para conseguir los proveedores que coincidan con el ID de proveedor en la caja de texto (si lo hubiera)
         Dim SQL As String = "select id_proveedor " &
             "from Proveedores " &
             "WHERE id_proveedor = '" & ct_idproveedor.Text & "'"
@@ -68,6 +65,9 @@ Public Class FormProveedores
 
         Dim lectura As MySqlDataReader = cmd.ExecuteReader()
         Dim tipoModificacion As String
+
+        ' Si la orden SQL retorno algo, se actualiza el registro (UPDATE); 
+        ' De lo contrario, se inserta el nuevo registro (INSERT)
         If lectura.HasRows Then
             tipoModificacion = "Actualizado"
             SQL = "UPDATE Proveedores " &
@@ -92,13 +92,15 @@ Public Class FormProveedores
         cmd.ExecuteNonQuery()
         MessageBox.Show("Registro " & tipoModificacion)
 
-        bt_nuevo_Click(Nothing, Nothing)
+        LimpiarTexto()
 
+        ' Cargar nuevamente la tabla con los datos actualizados
         SQL = "SELECT * from Proveedores order by nombre"
         DataGridView1.DataSource = Cargar_grid(SQL, conexion)
     End Sub
 
     Private Sub bt_borrar_Click(sender As Object, e As EventArgs) Handles btborrar.Click
+        ' Comprobar que se ha seleccionado un registro de la tabla
         If ct_idproveedor.Text = "" Then
             MessageBox.Show("Seleccione un proveedor")
             Exit Sub
@@ -116,6 +118,7 @@ Public Class FormProveedores
             Exit Sub
         End If
 
+        ' Orden SQL para borrar el proveedor que se ha seleccionado
         Dim SQL As String = "delete from Proveedores " &
             "WHERE id_proveedor = '" & ct_idproveedor.Text & "'"
 
@@ -125,8 +128,9 @@ Public Class FormProveedores
 
         MessageBox.Show("Registro borrado")
 
-        bt_nuevo_Click(Nothing, Nothing)
+        LimpiarTexto()
 
+        ' Cargar de nuevo la tabla con lo datos actualizados
         SQL = "SELECT * from Proveedores order by nombre"
         DataGridView1.DataSource = Cargar_grid(SQL, conexion)
     End Sub
@@ -136,9 +140,11 @@ Public Class FormProveedores
     End Sub
 
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
+        ' Si se selecciono una fila valida, popular las cajas de texto con los datos de la tabla seleccionada
         If e.RowIndex >= 0 Then
             Dim proveedor As String = Convert.ToString(DataGridView1.Rows(e.RowIndex).Cells(0).Value)
 
+            ' Orden SQL para conseguir el proveedor que se ha seleccionado
             Dim SQL As String = "SELECT * FROM Proveedores " &
                 "WHERE id_proveedor = '" & proveedor & "'"
 
@@ -162,11 +168,15 @@ Public Class FormProveedores
         End If
     End Sub
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
 
-    End Sub
+    ' Limpiar las cajas de texto en preparacion para introducir un nuevo registro
+    Private Sub LimpiarTexto()
+        Me.ct_idproveedor.Text = ""
+        Me.ct_nombre.Text = ""
+        Me.ct_direccion.Text = ""
+        Me.ct_telefono.Text = ""
+        Me.ct_correo.Text = ""
 
-    Private Sub ct_nombre_TextChanged(sender As Object, e As EventArgs) Handles ct_nombre.TextChanged
-
+        Me.ct_nombre.Focus()
     End Sub
 End Class

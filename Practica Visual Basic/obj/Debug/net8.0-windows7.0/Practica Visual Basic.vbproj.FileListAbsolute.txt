@@ -20,9 +20,6 @@ L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\b
 L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Practica Visual Basic.vbproj.AssemblyReference.cache
 L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Practica_Visual_Basic.FormClientes.resources
 L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Practica_Visual_Basic.FormCompras.resources
-L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Practica_Visual_Basic.FormDetalleCompras.resources
-L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Practica_Visual_Basic.FormDetalleVentas.resources
-L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Practica_Visual_Basic.FormLogin.resources
 L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Practica_Visual_Basic.FormMenuPrincipal.resources
 L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Practica_Visual_Basic.FormProductos.resources
 L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Practica_Visual_Basic.FormProveedores.resources
@@ -39,3 +36,12 @@ L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\o
 L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Practica Visual Basic.pdb
 L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Practica Visual Basic.genruntimeconfig.cache
 L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\ref\Practica Visual Basic.dll
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Practica_Visual_Basic.FormLoginBD.resources
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Practica_Visual_Basic.FormLoginUsuario.resources
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Practica_Visual_Basic.FormCatalogoProductos.resources
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\bin\Debug\net8.0-windows7.0\Microsoft.Office.Interop.Excel.dll
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Interop.Microsoft.Office.Interop.Excel.dll
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Practica Visual Basic.vbproj.ResolveComReference.cache
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Practica_Visual_Basic.Resources.resources
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Practica_Visual_Basic.FormCatalogoClientes.resources
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Practica_Visual_Basic.FormCatalogoProveedores.resources
