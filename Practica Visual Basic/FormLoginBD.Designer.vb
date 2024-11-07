@@ -29,18 +29,20 @@ Partial Class FormLoginBD
         Label2 = New Label()
         Label3 = New Label()
         btLogin = New Button()
+        Label4 = New Label()
+        ct_BD = New TextBox()
         SuspendLayout()
         ' 
         ' ct_userID
         ' 
-        ct_userID.Location = New Point(116, 59)
+        ct_userID.Location = New Point(125, 59)
         ct_userID.Name = "ct_userID"
         ct_userID.Size = New Size(125, 27)
         ct_userID.TabIndex = 0
         ' 
         ' ct_password
         ' 
-        ct_password.Location = New Point(116, 92)
+        ct_password.Location = New Point(125, 92)
         ct_password.Name = "ct_password"
         ct_password.Size = New Size(125, 27)
         ct_password.TabIndex = 1
@@ -58,7 +60,7 @@ Partial Class FormLoginBD
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(48, 62)
+        Label2.Location = New Point(57, 62)
         Label2.Name = "Label2"
         Label2.Size = New Size(62, 20)
         Label2.TabIndex = 3
@@ -67,7 +69,7 @@ Partial Class FormLoginBD
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(24, 95)
+        Label3.Location = New Point(33, 95)
         Label3.Name = "Label3"
         Label3.Size = New Size(86, 20)
         Label3.TabIndex = 4
@@ -75,18 +77,36 @@ Partial Class FormLoginBD
         ' 
         ' btLogin
         ' 
-        btLogin.Location = New Point(85, 141)
+        btLogin.Location = New Point(84, 168)
         btLogin.Name = "btLogin"
         btLogin.Size = New Size(94, 29)
-        btLogin.TabIndex = 5
+        btLogin.TabIndex = 3
         btLogin.Text = "Login"
         btLogin.UseVisualStyleBackColor = True
+        ' 
+        ' Label4
+        ' 
+        Label4.AutoSize = True
+        Label4.Location = New Point(12, 128)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(107, 20)
+        Label4.TabIndex = 6
+        Label4.Text = "Base de Datos:"
+        ' 
+        ' ct_BD
+        ' 
+        ct_BD.Location = New Point(125, 125)
+        ct_BD.Name = "ct_BD"
+        ct_BD.Size = New Size(125, 27)
+        ct_BD.TabIndex = 2
         ' 
         ' FormLoginBD
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(279, 209)
+        Controls.Add(ct_BD)
+        Controls.Add(Label4)
         Controls.Add(btLogin)
         Controls.Add(Label3)
         Controls.Add(Label2)
@@ -105,4 +125,6 @@ Partial Class FormLoginBD
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents btLogin As Button
+    Friend WithEvents Label4 As Label
+    Friend WithEvents ct_BD As TextBox
 End Class

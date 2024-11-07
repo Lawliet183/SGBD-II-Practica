@@ -1,14 +1,14 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Module Module1
-    Public Function Conectar(ByVal userID As String, ByVal password As String)
+    Public Function Conectar(ByVal userID As String, ByVal password As String, ByVal database As String)
         Dim conexion = New MySqlConnection
 
         Try
             conexion.ConnectionString = "server=localhost;" &
                 "user id=" & userID & ";" &
                 "password=" & password & ";" &
-                "database=inventario;"
+                "database=" & database & ";"
 
             conexion.Open()
         Catch ex As MySqlException
