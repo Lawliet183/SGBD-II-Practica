@@ -14,13 +14,7 @@ Public Class FormReporteExistencias
     End Sub
 
     Private Sub btBuscar_Click(sender As Object, e As EventArgs) Handles btBuscar.Click
-        Dim SQL As String = "SELECT " &
-            "nombre as 'Nombre de producto', " &
-            "stock as 'Stock' " &
-            "FROM Productos " &
-            "WHERE nombre like '" & ct_nombre.Text & "%'"
-
-        DataGridView1.DataSource = Cargar_grid(SQL, conexion)
+        Buscar()
     End Sub
 
     Private Sub btResetear_Click(sender As Object, e As EventArgs) Handles btResetear.Click
@@ -59,5 +53,21 @@ Public Class FormReporteExistencias
 
     Private Sub btSalir_Click(sender As Object, e As EventArgs) Handles btSalir.Click
         Me.Close()
+    End Sub
+
+    Private Sub ct_nombre_KeyDown(sender As Object, e As KeyEventArgs) Handles ct_nombre.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            Buscar()
+        End If
+    End Sub
+
+    Private Sub Buscar()
+        Dim SQL As String = "SELECT " &
+            "nombre as 'Nombre de producto', " &
+            "stock as 'Stock' " &
+            "FROM Productos " &
+            "WHERE nombre like '" & ct_nombre.Text & "%'"
+
+        DataGridView1.DataSource = Cargar_grid(SQL, conexion)
     End Sub
 End Class
