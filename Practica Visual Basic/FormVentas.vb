@@ -8,7 +8,8 @@ Public Class FormVentas
     Private Sub FormVentas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         conexion = FormMenuPrincipal.ConseguirConexion()
         Dim SQL As String = "SELECT * from Ventas " &
-            "natural join Detalle_ventas;"
+            "natural join Detalle_ventas " &
+            "order by id_venta asc, id_detalle asc;"
 
         DataGridView1.DataSource = Cargar_grid(SQL, conexion)
     End Sub

@@ -28,7 +28,6 @@ Partial Class FormUsuarios
         ct_idUsuario = New TextBox()
         ct_username = New TextBox()
         ct_password = New TextBox()
-        ct_rol = New TextBox()
         btNuevo = New Button()
         btGuardar = New Button()
         btBorrar = New Button()
@@ -36,6 +35,7 @@ Partial Class FormUsuarios
         Label2 = New Label()
         Label3 = New Label()
         btSalir = New Button()
+        comboBox_Rol = New ComboBox()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -70,13 +70,6 @@ Partial Class FormUsuarios
         ct_password.Size = New Size(173, 27)
         ct_password.TabIndex = 3
         ct_password.UseSystemPasswordChar = True
-        ' 
-        ' ct_rol
-        ' 
-        ct_rol.Location = New Point(317, 329)
-        ct_rol.Name = "ct_rol"
-        ct_rol.Size = New Size(173, 27)
-        ct_rol.TabIndex = 4
         ' 
         ' btNuevo
         ' 
@@ -141,11 +134,20 @@ Partial Class FormUsuarios
         btSalir.Text = "Salir"
         btSalir.UseVisualStyleBackColor = True
         ' 
+        ' comboBox_Rol
+        ' 
+        comboBox_Rol.FormattingEnabled = True
+        comboBox_Rol.Location = New Point(317, 329)
+        comboBox_Rol.Name = "comboBox_Rol"
+        comboBox_Rol.Size = New Size(173, 28)
+        comboBox_Rol.TabIndex = 12
+        ' 
         ' FormUsuarios
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 408)
+        Controls.Add(comboBox_Rol)
         Controls.Add(btSalir)
         Controls.Add(Label3)
         Controls.Add(Label2)
@@ -153,7 +155,6 @@ Partial Class FormUsuarios
         Controls.Add(btBorrar)
         Controls.Add(btGuardar)
         Controls.Add(btNuevo)
-        Controls.Add(ct_rol)
         Controls.Add(ct_password)
         Controls.Add(ct_username)
         Controls.Add(ct_idUsuario)
@@ -169,7 +170,6 @@ Partial Class FormUsuarios
     Friend WithEvents ct_idUsuario As TextBox
     Friend WithEvents ct_username As TextBox
     Friend WithEvents ct_password As TextBox
-    Friend WithEvents ct_rol As TextBox
     Friend WithEvents btNuevo As Button
     Friend WithEvents btGuardar As Button
     Friend WithEvents btBorrar As Button
@@ -177,4 +177,5 @@ Partial Class FormUsuarios
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents btSalir As Button
+    Friend WithEvents comboBox_Rol As ComboBox
 End Class

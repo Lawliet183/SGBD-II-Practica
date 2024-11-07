@@ -35,14 +35,14 @@ Partial Class FormLoginBD
         ' 
         ' ct_userID
         ' 
-        ct_userID.Location = New Point(125, 59)
+        ct_userID.Location = New Point(166, 57)
         ct_userID.Name = "ct_userID"
         ct_userID.Size = New Size(125, 27)
         ct_userID.TabIndex = 0
         ' 
         ' ct_password
         ' 
-        ct_password.Location = New Point(125, 92)
+        ct_password.Location = New Point(166, 90)
         ct_password.Name = "ct_password"
         ct_password.Size = New Size(125, 27)
         ct_password.TabIndex = 1
@@ -51,7 +51,7 @@ Partial Class FormLoginBD
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Location = New Point(39, 21)
+        Label1.Location = New Point(80, 19)
         Label1.Name = "Label1"
         Label1.Size = New Size(193, 20)
         Label1.TabIndex = 2
@@ -60,7 +60,7 @@ Partial Class FormLoginBD
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(57, 62)
+        Label2.Location = New Point(98, 60)
         Label2.Name = "Label2"
         Label2.Size = New Size(62, 20)
         Label2.TabIndex = 3
@@ -69,7 +69,7 @@ Partial Class FormLoginBD
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(33, 95)
+        Label3.Location = New Point(74, 93)
         Label3.Name = "Label3"
         Label3.Size = New Size(86, 20)
         Label3.TabIndex = 4
@@ -77,7 +77,7 @@ Partial Class FormLoginBD
         ' 
         ' btLogin
         ' 
-        btLogin.Location = New Point(84, 168)
+        btLogin.Location = New Point(125, 166)
         btLogin.Name = "btLogin"
         btLogin.Size = New Size(94, 29)
         btLogin.TabIndex = 3
@@ -87,7 +87,7 @@ Partial Class FormLoginBD
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(12, 128)
+        Label4.Location = New Point(53, 126)
         Label4.Name = "Label4"
         Label4.Size = New Size(107, 20)
         Label4.TabIndex = 6
@@ -95,7 +95,7 @@ Partial Class FormLoginBD
         ' 
         ' ct_BD
         ' 
-        ct_BD.Location = New Point(125, 125)
+        ct_BD.Location = New Point(166, 123)
         ct_BD.Name = "ct_BD"
         ct_BD.Size = New Size(125, 27)
         ct_BD.TabIndex = 2
@@ -104,7 +104,7 @@ Partial Class FormLoginBD
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(279, 209)
+        ClientSize = New Size(352, 209)
         Controls.Add(ct_BD)
         Controls.Add(Label4)
         Controls.Add(btLogin)
@@ -114,7 +114,7 @@ Partial Class FormLoginBD
         Controls.Add(ct_password)
         Controls.Add(ct_userID)
         Name = "FormLoginBD"
-        Text = "Login BD"
+        Text = "Conectar a la Base de Datos"
         ResumeLayout(False)
         PerformLayout()
     End Sub

@@ -30,6 +30,7 @@ Public Class FormReporteExistencias
             "FROM Productos"
 
         DataGridView1.DataSource = Cargar_grid(SQL, conexion)
+        ct_nombre.Text = ""
     End Sub
 
     Private Sub btExportar_Click(sender As Object, e As EventArgs) Handles btExportar.Click

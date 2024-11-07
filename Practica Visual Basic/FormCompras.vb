@@ -8,7 +8,8 @@ Public Class FormCompras
     Private Sub FormCompras_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         conexion = FormMenuPrincipal.ConseguirConexion()
         Dim SQL As String = "SELECT * from Compras " &
-            "natural join Detalle_compras;"
+            "natural join Detalle_compras " &
+            "order by id_compra asc, id_detalle_compra asc;"
 
         DataGridView1.DataSource = Cargar_grid(SQL, conexion)
     End Sub
@@ -149,7 +150,7 @@ Public Class FormCompras
         End Try
 
         ' Actualizar la caja de texto con la respectiva ID
-        SQL = "select * from Ventas " &
+        SQL = "select * from Compras " &
             "where id_proveedor = '" & ct_idProveedor.Text & "' " &
             "and fecha_compra = '" & dtp_fecha.Text & "' " &
             "and total = '" & ct_total.Text & "'"
@@ -220,6 +221,7 @@ Public Class FormCompras
         Dim idDetalleCompra As Integer
         Integer.TryParse(ct_idDetalleCompra.Text, idDetalleCompra)
 
+        ' DOES NOT WORK
         Dim idCompra As Integer
         If Not Integer.TryParse(ct_idCompra.Text, idCompra) Then
             MessageBox.Show("El ID debe ser un numero entero")

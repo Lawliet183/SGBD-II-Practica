@@ -6,7 +6,7 @@ Public Class FormProductos
 
     Private Sub FormProductos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         conexion = FormMenuPrincipal.ConseguirConexion()
-        Dim SQL As String = "SELECT * from Productos"
+        Dim SQL As String = "SELECT * from Productos order by id_producto asc"
         DataGridView1.DataSource = Cargar_grid(SQL, conexion)
     End Sub
 
@@ -180,7 +180,7 @@ Public Class FormProductos
         LimpiarTexto()
 
         ' Cargar nuevamente la tabla con los datos actualizados
-        SQL = "SELECT * from Productos order by nombre"
+        SQL = "SELECT * from Productos order by id_producto"
         DataGridView1.DataSource = Cargar_grid(SQL, conexion)
     End Sub
 
@@ -216,7 +216,7 @@ Public Class FormProductos
         LimpiarTexto()
 
         ' Cargar de nuevo la tabla con lo datos actualizados
-        SQL = "SELECT * from Productos order by nombre"
+        SQL = "SELECT * from Productos order by id_producto"
         DataGridView1.DataSource = Cargar_grid(SQL, conexion)
     End Sub
 

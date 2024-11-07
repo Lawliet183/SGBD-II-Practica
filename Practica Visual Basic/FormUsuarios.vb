@@ -6,8 +6,12 @@ Public Class FormUsuarios
 
     Private Sub FormUsuarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         conexion = FormMenuPrincipal.ConseguirConexion()
-        Dim SQL As String = "SELECT * from Usuarios"
+        Dim SQL As String = "SELECT * from Usuarios order by id_usuario asc"
         DataGridView1.DataSource = Cargar_grid(SQL, conexion)
+
+        ' Agregar los tipos de usuario
+        comboBox_Rol.Items.Add("Administrador")
+        comboBox_Rol.Items.Add("Vendedor")
     End Sub
 
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
@@ -28,7 +32,7 @@ Public Class FormUsuarios
                     Me.ct_idUsuario.Text = lectura("id_usuario").ToString()
                     Me.ct_username.Text = lectura("username").ToString()
                     Me.ct_password.Text = lectura("password").ToString()
-                    Me.ct_rol.Text = lectura("rol").ToString()
+                    Me.comboBox_Rol.Text = lectura("rol").ToString()
                 End If
 
                 lectura.Close()
@@ -46,7 +50,7 @@ Public Class FormUsuarios
         Me.ct_idUsuario.Text = ""
         Me.ct_username.Text = ""
         Me.ct_password.Text = ""
-        Me.ct_rol.Text = ""
+        Me.comboBox_Rol.Text = ""
 
         Me.ct_username.Focus()
     End Sub
@@ -65,9 +69,9 @@ Public Class FormUsuarios
             Exit Sub
         End If
 
-        If ct_rol.Text = "" Then
+        If comboBox_Rol.Text = "" Then
             MessageBox.Show("Digite el rol")
-            ct_rol.Focus()
+            comboBox_Rol.Focus()
             Exit Sub
         End If
 
@@ -103,7 +107,7 @@ Public Class FormUsuarios
             SQL = "UPDATE Usuarios " &
                 "set username='" & ct_username.Text & "'," &
                 "password='" & ct_password.Text & "'," &
-                "rol='" & ct_rol.Text & "'," &
+                "rol='" & comboBox_Rol.Text & "'," &
                 "where id_usuario='" & ct_idUsuario.Text & "'"
         Else
             tipoModificacion = "Guardado"
@@ -111,7 +115,7 @@ Public Class FormUsuarios
                 "(null," &
                 "'" & ct_username.Text & "'," &
                 "md5('" & ct_password.Text & "')," &
-                "'" & ct_rol.Text & "')"
+                "'" & comboBox_Rol.Text & "')"
         End If
 
         lectura.Close()
@@ -130,7 +134,7 @@ Public Class FormUsuarios
         LimpiarTexto()
 
         ' Cargar nuevamente la tabla con los datos actualizados
-        SQL = "SELECT * from Usuarios order by username"
+        SQL = "SELECT * from Usuarios order by id_usuario"
         DataGridView1.DataSource = Cargar_grid(SQL, conexion)
     End Sub
 
@@ -166,7 +170,7 @@ Public Class FormUsuarios
         LimpiarTexto()
 
         ' Cargar de nuevo la tabla con lo datos actualizados
-        SQL = "SELECT * from Usuarios order by username"
+        SQL = "SELECT * from Usuarios order by id_usuario"
         DataGridView1.DataSource = Cargar_grid(SQL, conexion)
     End Sub
 

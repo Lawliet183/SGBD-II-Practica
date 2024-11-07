@@ -28,7 +28,6 @@ Public Class FormLoginUsuario
 
         ' Si hay coincidencias, cerrar el formulario de login; de lo contrario, indicar que el usuario o clave es invalido
         If lectura.HasRows Then
-            'FormMenuPrincipal.Show()
             Me.Close()
         Else
             MsgBox("Usuario o clave invalido")

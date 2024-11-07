@@ -7,7 +7,7 @@ Public Class FormProveedores
 
     Private Sub FormProveedores_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         conexion = FormMenuPrincipal.ConseguirConexion()
-        Dim SQL As String = "SELECT * from Proveedores"
+        Dim SQL As String = "SELECT * from Proveedores order by id_proveedor"
         DataGridView1.DataSource = Cargar_grid(SQL, conexion)
     End Sub
 
@@ -95,7 +95,7 @@ Public Class FormProveedores
         LimpiarTexto()
 
         ' Cargar nuevamente la tabla con los datos actualizados
-        SQL = "SELECT * from Proveedores order by nombre"
+        SQL = "SELECT * from Proveedores order by id_proveedor"
         DataGridView1.DataSource = Cargar_grid(SQL, conexion)
     End Sub
 
@@ -131,7 +131,7 @@ Public Class FormProveedores
         LimpiarTexto()
 
         ' Cargar de nuevo la tabla con lo datos actualizados
-        SQL = "SELECT * from Proveedores order by nombre"
+        SQL = "SELECT * from Proveedores order by id_proveedor"
         DataGridView1.DataSource = Cargar_grid(SQL, conexion)
     End Sub
 
