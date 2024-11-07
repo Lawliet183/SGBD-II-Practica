@@ -136,20 +136,20 @@ Public Class FormVentas
             Exit Sub
         End Try
 
-        ' Actualizar la caja de texto con la respectiva ID
-        SQL = "select * from Ventas " &
-            "where fecha_venta = '" & dtp_fecha.Text & "' " &
-            "and id_cliente = '" & ct_idCliente.Text & "' " &
-            "and total = '" & ct_total.Text & "'"
 
-        cmd.CommandText = SQL
-        lectura = cmd.ExecuteReader()
+        ' Si se inserto una nueva venta, actualizar la caja de texto con la respectiva ID
+        If tipoModificacion = "Guardado" Then
+            ' Seleccionar el ultimo ID insertado (generado por un AUTO INCREMENT)
+            SQL = "select last_insert_id()"
 
-        If lectura.Read() = True Then
-            Me.ct_idVenta.Text = lectura("id_venta").ToString()
+            cmd.CommandText = SQL
+            lectura = cmd.ExecuteReader()
+
+            lectura.Read()
+            Me.ct_idVenta.Text = lectura("last_insert_id()").ToString()
+
+            lectura.Close()
         End If
-
-        lectura.Close()
 
         AgregarDetalleVentas()
 
@@ -164,6 +164,16 @@ Public Class FormVentas
             cmd.CommandText = SQL
             lectura = cmd.ExecuteReader()
 
+            ' Si el detalle de venta no tiene ID de venta, usar el ultimo generado por AUTO INCREMENT;
+            ' De otra forma, usar el ID que ya tiene
+            Dim idVenta As Integer
+            If detalleVenta.idVenta = 0 Then
+                Integer.TryParse(ct_idVenta.Text, idVenta)
+            Else
+                idVenta = detalleVenta.idVenta
+            End If
+
+            ' Si el detalle de venta ya existe, actualizarlo; De otra forma, insertarlo
             If lectura.HasRows Then
                 SQL = "UPDATE Detalle_ventas " &
                     "set id_producto = '" & ct_idProducto.Text & "', " &
@@ -173,25 +183,23 @@ Public Class FormVentas
             Else
                 SQL = "INSERT INTO Detalle_ventas values " &
                     "(null, " &
-                    "'" & detalleVenta.idVenta & "', " &
+                    "'" & idVenta & "', " &
                     "'" & detalleVenta.idProducto & "', " &
                     "'" & detalleVenta.cantidad & "', " &
                     "'" & detalleVenta.precioUnitario & "')"
             End If
 
             lectura.Close()
+
+            ' Si se trata de realizar una operacion invalida, indicarla al usuario
+            cmd.CommandText = SQL
+            Try
+                cmd.ExecuteNonQuery()
+            Catch ex As MySqlException
+                MessageBox.Show(ex.Message)
+                Exit Sub
+            End Try
         Next
-
-        lectura.Close()
-
-        ' Si se trata de realizar una operacion invalida, indicarla al usuario
-        cmd.CommandText = SQL
-        Try
-            cmd.ExecuteNonQuery()
-        Catch ex As MySqlException
-            MessageBox.Show(ex.Message)
-            Exit Sub
-        End Try
 
         MessageBox.Show("Registro " & tipoModificacion)
 
@@ -270,6 +278,7 @@ Public Class FormVentas
         Dim idDetalleVenta As Integer
         If Not Integer.TryParse(ct_idDetalleVenta.Text, idDetalleVenta) Then
             MessageBox.Show("El ID debe ser un numero entero")
+            LimpiarTextoDetalleVentas()
             Exit Sub
         End If
 
@@ -301,10 +310,7 @@ Public Class FormVentas
         Integer.TryParse(ct_idDetalleVenta.Text, idDetalleVenta)
 
         Dim idVenta As Integer
-        If Not Integer.TryParse(ct_idVenta.Text, idVenta) Then
-            MessageBox.Show("El ID debe ser un numero entero")
-            Return False
-        End If
+        Integer.TryParse(ct_idVenta.Text, idVenta)
 
         Dim idProducto As Integer
         If Not Integer.TryParse(ct_idProducto.Text, idProducto) Then
