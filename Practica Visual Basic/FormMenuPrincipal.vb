@@ -80,4 +80,34 @@ Public Class FormMenuPrincipal
         catalogoVendedores.MdiParent = Me
         catalogoVendedores.Show()
     End Sub
+
+    Private Sub ReporteExistenciasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteExistenciasToolStripMenuItem.Click
+        Dim reporteExistencias As New FormReporteExistencias
+        reporteExistencias.MdiParent = Me
+        reporteExistencias.Show()
+    End Sub
+
+    Private Sub ReporteExistenciasAlMinimoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteExistenciasAlMinimoToolStripMenuItem.Click
+        Dim reporteExistenciasAlMinimo As New FormReporteExistenciasAlMinimo
+        reporteExistenciasAlMinimo.MdiParent = Me
+        reporteExistenciasAlMinimo.Show()
+    End Sub
+
+    Private Sub ReporteComprasPorRangoDeFechaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteComprasPorRangoDeFechaToolStripMenuItem.Click
+        Dim reporteComprasPorFecha As New FormReporteComprasPorFecha
+        reporteComprasPorFecha.MdiParent = Me
+        reporteComprasPorFecha.Show()
+    End Sub
+
+    Private Sub ReporteVentasPorRangoDeFechaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteVentasPorRangoDeFechaToolStripMenuItem.Click
+        Dim reporteVentasPorFecha As New FormReporteVentasPorFecha
+        reporteVentasPorFecha.MdiParent = Me
+        reporteVentasPorFecha.Show()
+    End Sub
+
+    Private Sub ReporteGananciasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteGananciasToolStripMenuItem.Click
+        Dim reporteGanancias As New FormReporteGanancias
+        reporteGanancias.MdiParent = Me
+        reporteGanancias.Show()
+    End Sub
 End Class

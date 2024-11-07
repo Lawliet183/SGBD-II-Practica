@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class FormReporteGanancias
+Partial Class FormReporteComprasPorFecha
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -105,7 +105,7 @@ Partial Class FormReporteGanancias
         Label2.TabIndex = 10
         Label2.Text = "Fecha de fin:"
         ' 
-        ' FormReporteGanancias
+        ' FormReporteComprasPorFecha
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
@@ -118,8 +118,8 @@ Partial Class FormReporteGanancias
         Controls.Add(btExportar)
         Controls.Add(btFiltrar)
         Controls.Add(DataGridView1)
-        Name = "FormReporteGanancias"
-        Text = "Reporte de Ganancias"
+        Name = "FormReporteComprasPorFecha"
+        Text = "Reporte de Compras por rango de fecha"
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()

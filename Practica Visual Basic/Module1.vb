@@ -28,45 +28,45 @@ Module Module1
         Return dataset.Tables(0)
     End Function
 
-    'Function ConvertirGridAExcel(ByVal Datagridview1 As DataGridView) As Boolean
-    '    Dim exApp As New Excel.Application
-    '    Dim exLibro As Excel.Workbook
-    '    Dim exHoja As Excel.Worksheet
+    Function ConvertirGridAExcel(ByVal Datagridview1 As DataGridView) As Boolean
+        Dim exApp As New Microsoft.Office.Interop.Excel.Application
+        Dim exLibro As Microsoft.Office.Interop.Excel.Workbook
+        Dim exHoja As Microsoft.Office.Interop.Excel.Worksheet
 
-    '    Try
-    '        exLibro = exApp.Workbooks.Add
-    '        exHoja = exLibro.Worksheets.Add()
+        Try
+            exLibro = exApp.Workbooks.Add
+            exHoja = exLibro.Worksheets.Add()
 
-    '        ''Numero de Filas y columnas
-    '        Dim columnas As Integer = Datagridview1.ColumnCount
-    '        Dim filas As Integer = Datagridview1.RowCount
-    '        For columna As Integer = 1 To columnas
-    '            exHoja.Cells.Item(1, columna) = Datagridview1.Columns(columna - 1).Name.ToString
-    '            exHoja.Cells.Item(1, columna).horizontalalignment = 3
-    '        Next
+            'Numero de Filas y columnas
+            Dim columnas As Integer = Datagridview1.ColumnCount
+            Dim filas As Integer = Datagridview1.RowCount
+            For columna As Integer = 1 To columnas
+                exHoja.Cells.Item(1, columna) = Datagridview1.Columns(columna - 1).Name.ToString
+                exHoja.Cells.Item(1, columna).horizontalalignment = 3
+            Next
 
-    '        For fila As Integer = 0 To filas - 1
-    '            For col As Integer = 0 To columnas - 1
-    '                exHoja.Cells.Item(fila + 2, col + 1) = Datagridview1.Rows(fila).Cells(col).Value
-    '            Next
-    '        Next
+            For fila As Integer = 0 To filas - 1
+                For col As Integer = 0 To columnas - 1
+                    exHoja.Cells.Item(fila + 2, col + 1) = Datagridview1.Rows(fila).Cells(col).Value
+                Next
+            Next
 
-    '        ''Titulo en negrita alineado al centro y que el tamaño de la columna se ajuste al texto
-    '        exHoja.Rows.Item(1).font.bold = 1
-    '        exHoja.Rows.Item(1).horizontalalignment = 3
-    '        exHoja.Columns.AutoFit()
+            'Titulo en negrita alineado al centro y que el tamaño de la columna se ajuste al texto
+            exHoja.Rows.Item(1).font.bold = 1
+            exHoja.Rows.Item(1).horizontalalignment = 3
+            exHoja.Columns.AutoFit()
 
-    '        ''Aplicacion visible
-    '        exApp.Application.Visible = True
-    '        exHoja = Nothing
-    '        exLibro = Nothing
-    '        exApp = Nothing
-    '    Catch ex As Exception
-    '        MsgBox(ex.Message, MsgBoxStyle.Critical, "Error al Exportar a Excel")
-    '        Return False
-    '    End Try
+            'Aplicacion visible
+            exApp.Application.Visible = True
+            exHoja = Nothing
+            exLibro = Nothing
+            exApp = Nothing
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error al Exportar a Excel")
+            Return False
+        End Try
 
-    '    Return True
-    'End Function
+        Return True
+    End Function
 
 End Module

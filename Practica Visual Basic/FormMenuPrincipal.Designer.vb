@@ -33,11 +33,11 @@ Partial Class FormMenuPrincipal
         UsuariosToolStripMenuItem = New ToolStripMenuItem()
         VentasToolStripMenuItem = New ToolStripMenuItem()
         ToolStripDropDownButton2 = New ToolStripDropDownButton()
-        ComprasPorRangoDeFechaToolStripMenuItem = New ToolStripMenuItem()
-        VentasPorRangoDeFechaToolStripMenuItem = New ToolStripMenuItem()
-        GananciasToolStripMenuItem = New ToolStripMenuItem()
-        ExistenciasAlMinimoToolStripMenuItem = New ToolStripMenuItem()
-        ExistenciasToolStripMenuItem = New ToolStripMenuItem()
+        ReporteComprasPorRangoDeFechaToolStripMenuItem = New ToolStripMenuItem()
+        ReporteVentasPorRangoDeFechaToolStripMenuItem = New ToolStripMenuItem()
+        ReporteGananciasToolStripMenuItem = New ToolStripMenuItem()
+        ReporteExistenciasAlMinimoToolStripMenuItem = New ToolStripMenuItem()
+        ReporteExistenciasToolStripMenuItem = New ToolStripMenuItem()
         ToolStripDropDownButton1 = New ToolStripDropDownButton()
         CatalogoProductosToolStripMenuItem = New ToolStripMenuItem()
         CatalogoClientesToolStripMenuItem = New ToolStripMenuItem()
@@ -104,42 +104,42 @@ Partial Class FormMenuPrincipal
         ' ToolStripDropDownButton2
         ' 
         ToolStripDropDownButton2.DisplayStyle = ToolStripItemDisplayStyle.Text
-        ToolStripDropDownButton2.DropDownItems.AddRange(New ToolStripItem() {ComprasPorRangoDeFechaToolStripMenuItem, VentasPorRangoDeFechaToolStripMenuItem, GananciasToolStripMenuItem, ExistenciasAlMinimoToolStripMenuItem, ExistenciasToolStripMenuItem})
+        ToolStripDropDownButton2.DropDownItems.AddRange(New ToolStripItem() {ReporteComprasPorRangoDeFechaToolStripMenuItem, ReporteVentasPorRangoDeFechaToolStripMenuItem, ReporteGananciasToolStripMenuItem, ReporteExistenciasAlMinimoToolStripMenuItem, ReporteExistenciasToolStripMenuItem})
         ToolStripDropDownButton2.Image = CType(resources.GetObject("ToolStripDropDownButton2.Image"), Image)
         ToolStripDropDownButton2.ImageTransparentColor = Color.Magenta
         ToolStripDropDownButton2.Name = "ToolStripDropDownButton2"
         ToolStripDropDownButton2.Size = New Size(82, 24)
         ToolStripDropDownButton2.Text = "Reportes"
         ' 
-        ' ComprasPorRangoDeFechaToolStripMenuItem
+        ' ReporteComprasPorRangoDeFechaToolStripMenuItem
         ' 
-        ComprasPorRangoDeFechaToolStripMenuItem.Name = "ComprasPorRangoDeFechaToolStripMenuItem"
-        ComprasPorRangoDeFechaToolStripMenuItem.Size = New Size(282, 26)
-        ComprasPorRangoDeFechaToolStripMenuItem.Text = "Compras por rango de fecha"
+        ReporteComprasPorRangoDeFechaToolStripMenuItem.Name = "ReporteComprasPorRangoDeFechaToolStripMenuItem"
+        ReporteComprasPorRangoDeFechaToolStripMenuItem.Size = New Size(282, 26)
+        ReporteComprasPorRangoDeFechaToolStripMenuItem.Text = "Compras por rango de fecha"
         ' 
-        ' VentasPorRangoDeFechaToolStripMenuItem
+        ' ReporteVentasPorRangoDeFechaToolStripMenuItem
         ' 
-        VentasPorRangoDeFechaToolStripMenuItem.Name = "VentasPorRangoDeFechaToolStripMenuItem"
-        VentasPorRangoDeFechaToolStripMenuItem.Size = New Size(282, 26)
-        VentasPorRangoDeFechaToolStripMenuItem.Text = "Ventas por rango de fecha"
+        ReporteVentasPorRangoDeFechaToolStripMenuItem.Name = "ReporteVentasPorRangoDeFechaToolStripMenuItem"
+        ReporteVentasPorRangoDeFechaToolStripMenuItem.Size = New Size(282, 26)
+        ReporteVentasPorRangoDeFechaToolStripMenuItem.Text = "Ventas por rango de fecha"
         ' 
-        ' GananciasToolStripMenuItem
+        ' ReporteGananciasToolStripMenuItem
         ' 
-        GananciasToolStripMenuItem.Name = "GananciasToolStripMenuItem"
-        GananciasToolStripMenuItem.Size = New Size(282, 26)
-        GananciasToolStripMenuItem.Text = "Ganancias"
+        ReporteGananciasToolStripMenuItem.Name = "ReporteGananciasToolStripMenuItem"
+        ReporteGananciasToolStripMenuItem.Size = New Size(282, 26)
+        ReporteGananciasToolStripMenuItem.Text = "Ganancias"
         ' 
-        ' ExistenciasAlMinimoToolStripMenuItem
+        ' ReporteExistenciasAlMinimoToolStripMenuItem
         ' 
-        ExistenciasAlMinimoToolStripMenuItem.Name = "ExistenciasAlMinimoToolStripMenuItem"
-        ExistenciasAlMinimoToolStripMenuItem.Size = New Size(282, 26)
-        ExistenciasAlMinimoToolStripMenuItem.Text = "Existencias al minimo"
+        ReporteExistenciasAlMinimoToolStripMenuItem.Name = "ReporteExistenciasAlMinimoToolStripMenuItem"
+        ReporteExistenciasAlMinimoToolStripMenuItem.Size = New Size(282, 26)
+        ReporteExistenciasAlMinimoToolStripMenuItem.Text = "Existencias al minimo"
         ' 
-        ' ExistenciasToolStripMenuItem
+        ' ReporteExistenciasToolStripMenuItem
         ' 
-        ExistenciasToolStripMenuItem.Name = "ExistenciasToolStripMenuItem"
-        ExistenciasToolStripMenuItem.Size = New Size(282, 26)
-        ExistenciasToolStripMenuItem.Text = "Existencias"
+        ReporteExistenciasToolStripMenuItem.Name = "ReporteExistenciasToolStripMenuItem"
+        ReporteExistenciasToolStripMenuItem.Size = New Size(282, 26)
+        ReporteExistenciasToolStripMenuItem.Text = "Existencias"
         ' 
         ' ToolStripDropDownButton1
         ' 
@@ -154,19 +154,19 @@ Partial Class FormMenuPrincipal
         ' CatalogoProductosToolStripMenuItem
         ' 
         CatalogoProductosToolStripMenuItem.Name = "CatalogoProductosToolStripMenuItem"
-        CatalogoProductosToolStripMenuItem.Size = New Size(224, 26)
+        CatalogoProductosToolStripMenuItem.Size = New Size(174, 26)
         CatalogoProductosToolStripMenuItem.Text = "Productos"
         ' 
         ' CatalogoClientesToolStripMenuItem
         ' 
         CatalogoClientesToolStripMenuItem.Name = "CatalogoClientesToolStripMenuItem"
-        CatalogoClientesToolStripMenuItem.Size = New Size(224, 26)
+        CatalogoClientesToolStripMenuItem.Size = New Size(174, 26)
         CatalogoClientesToolStripMenuItem.Text = "Clientes"
         ' 
         ' CatalogoProveedoresToolStripMenuItem
         ' 
         CatalogoProveedoresToolStripMenuItem.Name = "CatalogoProveedoresToolStripMenuItem"
-        CatalogoProveedoresToolStripMenuItem.Size = New Size(224, 26)
+        CatalogoProveedoresToolStripMenuItem.Size = New Size(174, 26)
         CatalogoProveedoresToolStripMenuItem.Text = "Proveedores"
         ' 
         ' FormMenuPrincipal
@@ -196,11 +196,11 @@ Partial Class FormMenuPrincipal
     Friend WithEvents ProveedoresToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents UsuariosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents VentasToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ComprasPorRangoDeFechaToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents VentasPorRangoDeFechaToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents GananciasToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ExistenciasAlMinimoToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ExistenciasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReporteComprasPorRangoDeFechaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReporteVentasPorRangoDeFechaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReporteGananciasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReporteExistenciasAlMinimoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReporteExistenciasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CatalogoProductosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CatalogoClientesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CatalogoProveedoresToolStripMenuItem As ToolStripMenuItem

@@ -39,9 +39,13 @@ L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\o
 L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Practica_Visual_Basic.FormLoginBD.resources
 L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Practica_Visual_Basic.FormLoginUsuario.resources
 L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Practica_Visual_Basic.FormCatalogoProductos.resources
-L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\bin\Debug\net8.0-windows7.0\Microsoft.Office.Interop.Excel.dll
-L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Interop.Microsoft.Office.Interop.Excel.dll
-L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Practica Visual Basic.vbproj.ResolveComReference.cache
 L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Practica_Visual_Basic.Resources.resources
 L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Practica_Visual_Basic.FormCatalogoClientes.resources
 L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Practica_Visual_Basic.FormCatalogoProveedores.resources
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Practica_Visual_Basic.FormReporteGanancias.resources
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Interop.Microsoft.Office.Interop.Excel.dll
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Practica Visual Basic.vbproj.ResolveComReference.cache
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Practica_Visual_Basic.FormReporteExistencias.resources
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Practica_Visual_Basic.FormReporteExistenciasAlMinimo.resources
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Practica_Visual_Basic.FormReporteComprasPorFecha.resources
+L:\Documents\Visual Studio\SGBD II\Practica Visual Basic\Practica Visual Basic\obj\Debug\net8.0-windows7.0\Practica_Visual_Basic.FormReporteVentasPorFecha.resources

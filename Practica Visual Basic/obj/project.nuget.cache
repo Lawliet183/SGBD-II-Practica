@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "7zxkCWLBSqQ=",
+  "dgSpecHash": "A8KkYIu3cxc=",
   "success": true,
   "projectFilePath": "L:\\Documents\\Visual Studio\\SGBD II\\Practica Visual Basic\\Practica Visual Basic\\Practica Visual Basic.vbproj",
   "expectedPackageFiles": [
@@ -11,7 +11,6 @@
     "C:\\Users\\frank\\.nuget\\packages\\k4os.hash.xxhash\\1.0.8\\k4os.hash.xxhash.1.0.8.nupkg.sha512",
     "C:\\Users\\frank\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\frank\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
-    "C:\\Users\\frank\\.nuget\\packages\\microsoft.office.interop.excel\\15.0.4795.1001\\microsoft.office.interop.excel.15.0.4795.1001.nupkg.sha512",
     "C:\\Users\\frank\\.nuget\\packages\\mysql.data\\9.0.0\\mysql.data.9.0.0.nupkg.sha512",
     "C:\\Users\\frank\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\frank\\.nuget\\packages\\system.configuration.configurationmanager\\8.0.0\\system.configuration.configurationmanager.8.0.0.nupkg.sha512",

@@ -36,10 +36,11 @@ Public Class FormCatalogoClientes
             "FROM Clientes"
 
         DataGridView1.DataSource = Cargar_grid(SQL, conexion)
+        ct_nombre.Text = ""
     End Sub
 
     Private Sub btExportar_Click(sender As Object, e As EventArgs) Handles btExportar.Click
-        'ConvertirGridAExcel(DataGridView1)
+        ConvertirGridAExcel(DataGridView1)
     End Sub
 
     Private Sub btSalir_Click(sender As Object, e As EventArgs) Handles btSalir.Click

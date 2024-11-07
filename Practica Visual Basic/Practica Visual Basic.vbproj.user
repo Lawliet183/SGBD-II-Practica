@@ -31,7 +31,19 @@
     <Compile Update="FormProveedores.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FormReporteComprasPorFecha.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormReporteExistencias.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormReporteExistenciasAlMinimo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FormReporteGanancias.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormReporteVentasPorFecha.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormUsuarios.vb">
