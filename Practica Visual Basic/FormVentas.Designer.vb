@@ -51,10 +51,11 @@ Partial Class FormVentas
         ' DataGridView1
         ' 
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Location = New Point(12, 12)
+        DataGridView1.Dock = DockStyle.Top
+        DataGridView1.Location = New Point(0, 0)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersWidth = 51
-        DataGridView1.Size = New Size(875, 188)
+        DataGridView1.Size = New Size(899, 200)
         DataGridView1.TabIndex = 0
         ' 
         ' ct_idVenta

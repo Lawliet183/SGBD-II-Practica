@@ -44,11 +44,12 @@ Partial Class FormProveedores
         ' DataGridView1
         ' 
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Location = New Point(11, 11)
+        DataGridView1.Dock = DockStyle.Top
+        DataGridView1.Location = New Point(0, 0)
         DataGridView1.Margin = New Padding(2)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersWidth = 62
-        DataGridView1.Size = New Size(671, 178)
+        DataGridView1.Size = New Size(693, 190)
         DataGridView1.TabIndex = 0
         ' 
         ' Label1

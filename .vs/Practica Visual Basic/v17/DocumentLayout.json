@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "L:\\Documents\\Visual Studio\\SGBD II\\Practica Visual Basic\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{9EA491BB-C413-424E-9BF3-2059D2FDFA47}|Practica Visual Basic\\Practica Visual Basic.vbproj|l:\\documents\\visual studio\\sgbd ii\\practica visual basic\\practica visual basic\\formcompras.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{9EA491BB-C413-424E-9BF3-2059D2FDFA47}|Practica Visual Basic\\Practica Visual Basic.vbproj|solutionrelative:practica visual basic\\formcompras.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9EA491BB-C413-424E-9BF3-2059D2FDFA47}|Practica Visual Basic\\Practica Visual Basic.vbproj|l:\\documents\\visual studio\\sgbd ii\\practica visual basic\\practica visual basic\\formmenuprincipal.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
       "RelativeMoniker": "D:0:0:{9EA491BB-C413-424E-9BF3-2059D2FDFA47}|Practica Visual Basic\\Practica Visual Basic.vbproj|solutionrelative:practica visual basic\\formmenuprincipal.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
@@ -23,6 +27,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "FormCompras.vb",
+              "DocumentMoniker": "L:\\Documents\\Visual Studio\\SGBD II\\Practica Visual Basic\\Practica Visual Basic\\FormCompras.vb",
+              "RelativeDocumentMoniker": "Practica Visual Basic\\FormCompras.vb",
+              "ToolTip": "L:\\Documents\\Visual Studio\\SGBD II\\Practica Visual Basic\\Practica Visual Basic\\FormCompras.vb",
+              "RelativeToolTip": "Practica Visual Basic\\FormCompras.vb",
+              "ViewState": "AQIAAKEAAAAAAAAAAAAUwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-11-08T01:03:58.457Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "FormMenuPrincipal.vb [Design]",
               "DocumentMoniker": "L:\\Documents\\Visual Studio\\SGBD II\\Practica Visual Basic\\Practica Visual Basic\\FormMenuPrincipal.vb",
               "RelativeDocumentMoniker": "Practica Visual Basic\\FormMenuPrincipal.vb",
@@ -34,7 +51,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "FormMenuPrincipal.vb",
               "DocumentMoniker": "L:\\Documents\\Visual Studio\\SGBD II\\Practica Visual Basic\\Practica Visual Basic\\FormMenuPrincipal.vb",
               "RelativeDocumentMoniker": "Practica Visual Basic\\FormMenuPrincipal.vb",
