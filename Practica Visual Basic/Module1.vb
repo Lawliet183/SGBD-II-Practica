@@ -12,6 +12,7 @@ Module Module1
 
             conexion.Open()
         Catch ex As MySqlException
+            ' Si la conexion no se puede realizar, indicarlo y cerrar el programa
             MessageBox.Show("No se ha podido realizar la conexion a la base de datos.")
             End
         End Try

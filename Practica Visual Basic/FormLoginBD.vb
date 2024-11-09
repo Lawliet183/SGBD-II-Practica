@@ -8,12 +8,10 @@ Public Class FormLoginBD
         Dim database As String = ct_BD.Text
 
         Dim conexion As MySqlConnection = Conectar(userID, password, database)
-        If conexion Is Nothing Then
-            Application.Exit()
-        End If
 
         FormMenuPrincipal.AsignarConexion(conexion)
 
+        ' Cargar el login de usuario
         Dim loginUsuario As New FormLoginUsuario()
         loginUsuario.MdiParent = Me.MdiParent
         loginUsuario.Show()

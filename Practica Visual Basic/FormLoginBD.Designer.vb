@@ -105,6 +105,7 @@ Partial Class FormLoginBD
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(352, 209)
+        ControlBox = False
         Controls.Add(ct_BD)
         Controls.Add(Label4)
         Controls.Add(btLogin)

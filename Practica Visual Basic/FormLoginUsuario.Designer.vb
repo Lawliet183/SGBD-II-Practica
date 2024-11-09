@@ -87,6 +87,7 @@ Partial Class FormLoginUsuario
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(326, 214)
+        ControlBox = False
         Controls.Add(bt_enviar)
         Controls.Add(Label3)
         Controls.Add(Label2)
