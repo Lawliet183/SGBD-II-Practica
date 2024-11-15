@@ -26,7 +26,6 @@ Partial Class FormVentas
     Private Sub InitializeComponent()
         DataGridView1 = New DataGridView()
         ct_idVenta = New TextBox()
-        ct_idCliente = New TextBox()
         ct_total = New TextBox()
         btNuevo = New Button()
         btGuardar = New Button()
@@ -35,7 +34,6 @@ Partial Class FormVentas
         Label2 = New Label()
         Label3 = New Label()
         dtp_fecha = New DateTimePicker()
-        ct_idProducto = New TextBox()
         ct_precio = New TextBox()
         ct_cantidad = New TextBox()
         Label4 = New Label()
@@ -45,6 +43,8 @@ Partial Class FormVentas
         btMas = New Button()
         btMenos = New Button()
         btSalir = New Button()
+        comboBoxCliente = New ComboBox()
+        comboBoxProducto = New ComboBox()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -66,17 +66,11 @@ Partial Class FormVentas
         ct_idVenta.TabIndex = 1
         ct_idVenta.Visible = False
         ' 
-        ' ct_idCliente
-        ' 
-        ct_idCliente.Location = New Point(201, 239)
-        ct_idCliente.Name = "ct_idCliente"
-        ct_idCliente.Size = New Size(165, 27)
-        ct_idCliente.TabIndex = 2
-        ' 
         ' ct_total
         ' 
         ct_total.Location = New Point(133, 349)
         ct_total.Name = "ct_total"
+        ct_total.ReadOnly = True
         ct_total.Size = New Size(165, 27)
         ct_total.TabIndex = 4
         ' 
@@ -110,11 +104,11 @@ Partial Class FormVentas
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Location = New Point(99, 242)
+        Label1.Location = New Point(137, 242)
         Label1.Name = "Label1"
-        Label1.Size = New Size(96, 20)
+        Label1.Size = New Size(58, 20)
         Label1.TabIndex = 8
-        Label1.Text = "ID de cliente:"
+        Label1.Text = "Cliente:"
         ' 
         ' Label2
         ' 
@@ -143,17 +137,11 @@ Partial Class FormVentas
         dtp_fecha.Size = New Size(250, 27)
         dtp_fecha.TabIndex = 11
         ' 
-        ' ct_idProducto
-        ' 
-        ct_idProducto.Location = New Point(201, 293)
-        ct_idProducto.Name = "ct_idProducto"
-        ct_idProducto.Size = New Size(125, 27)
-        ct_idProducto.TabIndex = 12
-        ' 
         ' ct_precio
         ' 
         ct_precio.Location = New Point(623, 293)
         ct_precio.Name = "ct_precio"
+        ct_precio.ReadOnly = True
         ct_precio.Size = New Size(125, 27)
         ct_precio.TabIndex = 13
         ' 
@@ -167,11 +155,11 @@ Partial Class FormVentas
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(82, 296)
+        Label4.Location = New Point(123, 296)
         Label4.Name = "Label4"
-        Label4.Size = New Size(113, 20)
+        Label4.Size = New Size(72, 20)
         Label4.TabIndex = 15
-        Label4.Text = "ID de producto:"
+        Label4.Text = "Producto:"
         ' 
         ' Label5
         ' 
@@ -226,11 +214,29 @@ Partial Class FormVentas
         btSalir.Text = "Salir"
         btSalir.UseVisualStyleBackColor = True
         ' 
+        ' comboBoxCliente
+        ' 
+        comboBoxCliente.FormattingEnabled = True
+        comboBoxCliente.Location = New Point(201, 239)
+        comboBoxCliente.Name = "comboBoxCliente"
+        comboBoxCliente.Size = New Size(165, 28)
+        comboBoxCliente.TabIndex = 22
+        ' 
+        ' comboBoxProducto
+        ' 
+        comboBoxProducto.FormattingEnabled = True
+        comboBoxProducto.Location = New Point(201, 293)
+        comboBoxProducto.Name = "comboBoxProducto"
+        comboBoxProducto.Size = New Size(125, 28)
+        comboBoxProducto.TabIndex = 23
+        ' 
         ' FormVentas
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(899, 502)
+        Controls.Add(comboBoxProducto)
+        Controls.Add(comboBoxCliente)
         Controls.Add(btSalir)
         Controls.Add(btMenos)
         Controls.Add(btMas)
@@ -240,7 +246,6 @@ Partial Class FormVentas
         Controls.Add(Label4)
         Controls.Add(ct_cantidad)
         Controls.Add(ct_precio)
-        Controls.Add(ct_idProducto)
         Controls.Add(dtp_fecha)
         Controls.Add(Label3)
         Controls.Add(Label2)
@@ -249,7 +254,6 @@ Partial Class FormVentas
         Controls.Add(btGuardar)
         Controls.Add(btNuevo)
         Controls.Add(ct_total)
-        Controls.Add(ct_idCliente)
         Controls.Add(ct_idVenta)
         Controls.Add(DataGridView1)
         Name = "FormVentas"
@@ -261,7 +265,6 @@ Partial Class FormVentas
 
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents ct_idVenta As TextBox
-    Friend WithEvents ct_idCliente As TextBox
     Friend WithEvents ct_total As TextBox
     Friend WithEvents btNuevo As Button
     Friend WithEvents btGuardar As Button
@@ -270,7 +273,6 @@ Partial Class FormVentas
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents dtp_fecha As DateTimePicker
-    Friend WithEvents ct_idProducto As TextBox
     Friend WithEvents ct_precio As TextBox
     Friend WithEvents ct_cantidad As TextBox
     Friend WithEvents Label4 As Label
@@ -280,4 +282,6 @@ Partial Class FormVentas
     Friend WithEvents btMas As Button
     Friend WithEvents btMenos As Button
     Friend WithEvents btSalir As Button
+    Friend WithEvents comboBoxCliente As ComboBox
+    Friend WithEvents comboBoxProducto As ComboBox
 End Class

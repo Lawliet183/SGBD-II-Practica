@@ -25,12 +25,11 @@ Partial Class FormCatalogoProductos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         DataGridView1 = New DataGridView()
-        btBuscar = New Button()
-        ct_nombre = New TextBox()
         Label1 = New Label()
         btExportar = New Button()
         btResetear = New Button()
         btSalir = New Button()
+        comboBoxProducto = New ComboBox()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -44,30 +43,14 @@ Partial Class FormCatalogoProductos
         DataGridView1.Size = New Size(639, 188)
         DataGridView1.TabIndex = 0
         ' 
-        ' btBuscar
-        ' 
-        btBuscar.Location = New Point(383, 218)
-        btBuscar.Name = "btBuscar"
-        btBuscar.Size = New Size(94, 29)
-        btBuscar.TabIndex = 1
-        btBuscar.Text = "Buscar"
-        btBuscar.UseVisualStyleBackColor = True
-        ' 
-        ' ct_nombre
-        ' 
-        ct_nombre.Location = New Point(238, 220)
-        ct_nombre.Name = "ct_nombre"
-        ct_nombre.Size = New Size(125, 27)
-        ct_nombre.TabIndex = 2
-        ' 
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Location = New Point(75, 223)
+        Label1.Location = New Point(160, 223)
         Label1.Name = "Label1"
-        Label1.Size = New Size(157, 20)
+        Label1.Size = New Size(72, 20)
         Label1.TabIndex = 3
-        Label1.Text = "Nombre del producto:"
+        Label1.Text = "Producto:"
         ' 
         ' btExportar
         ' 
@@ -80,7 +63,7 @@ Partial Class FormCatalogoProductos
         ' 
         ' btResetear
         ' 
-        btResetear.Location = New Point(483, 218)
+        btResetear.Location = New Point(383, 219)
         btResetear.Name = "btResetear"
         btResetear.Size = New Size(94, 29)
         btResetear.TabIndex = 5
@@ -96,17 +79,24 @@ Partial Class FormCatalogoProductos
         btSalir.Text = "Salir"
         btSalir.UseVisualStyleBackColor = True
         ' 
+        ' comboBoxProducto
+        ' 
+        comboBoxProducto.FormattingEnabled = True
+        comboBoxProducto.Location = New Point(238, 220)
+        comboBoxProducto.Name = "comboBoxProducto"
+        comboBoxProducto.Size = New Size(125, 28)
+        comboBoxProducto.TabIndex = 7
+        ' 
         ' FormCatalogoProductos
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(639, 355)
+        Controls.Add(comboBoxProducto)
         Controls.Add(btSalir)
         Controls.Add(btResetear)
         Controls.Add(btExportar)
         Controls.Add(Label1)
-        Controls.Add(ct_nombre)
-        Controls.Add(btBuscar)
         Controls.Add(DataGridView1)
         Name = "FormCatalogoProductos"
         Text = "Catalogo de Productos"
@@ -116,10 +106,9 @@ Partial Class FormCatalogoProductos
     End Sub
 
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents btBuscar As Button
-    Friend WithEvents ct_nombre As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents btExportar As Button
     Friend WithEvents btResetear As Button
     Friend WithEvents btSalir As Button
+    Friend WithEvents comboBoxProducto As ComboBox
 End Class

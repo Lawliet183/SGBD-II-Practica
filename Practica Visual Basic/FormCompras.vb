@@ -526,9 +526,9 @@ Public Class FormCompras
         Dim cantidad As Integer
         Integer.TryParse(ct_cantidad.Text, cantidad)
 
-        Dim subTotal = precioCompra * cantidad
+        Dim subtotal = precioCompra * cantidad
 
-        ct_precio.Text = subTotal.ToString()
+        ct_precio.Text = subtotal.ToString()
     End Sub
 
     Private Sub ct_cantidad_TextChanged(sender As Object, e As EventArgs) Handles ct_cantidad.TextChanged

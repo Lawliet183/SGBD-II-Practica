@@ -7,11 +7,26 @@ Public Class FormVentas
 
     Private Sub FormVentas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         conexion = FormMenuPrincipal.ConseguirConexion()
-        Dim SQL As String = "SELECT * from Ventas " &
-            "natural join Detalle_ventas " &
-            "order by id_venta asc, id_detalle asc;"
+        Dim SQL As String = "select " &
+            "id_venta as 'ID de venta', " &
+            "C.nombre as 'Cliente', " &
+            "fecha_venta as 'Fecha de venta', " &
+            "id_detalle as 'ID de detalle de venta', " &
+            "P.nombre as 'Producto', " &
+            "cantidad as 'Cantidad', " &
+            "precio_unitario as 'Precio unitario', " &
+            "total as 'Total' " &
+            "from Ventas as V " &
+            "natural join Detalle_ventas as D " &
+            "natural join Clientes as C " &
+            "inner join Productos as P on " &
+            "D.id_producto = P.id_producto " &
+            "order by id_venta, id_detalle;"
 
         DataGridView1.DataSource = Cargar_grid(SQL, conexion)
+
+        InicializarClientes()
+        InicializarProductos()
     End Sub
 
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
@@ -20,9 +35,22 @@ Public Class FormVentas
             Dim venta As String = Convert.ToString(DataGridView1.Rows(e.RowIndex).Cells(0).Value)
 
             ' Orden SQL para conseguir la venta que se ha seleccionado
-            Dim SQL As String = "SELECT * FROM Ventas " &
-                "natural join Detalle_ventas " &
-                "WHERE id_venta = '" & venta & "'"
+            Dim SQL As String = "select " &
+                "id_venta as 'ID de venta', " &
+                "C.nombre as 'Cliente', " &
+                "fecha_venta as 'Fecha de venta', " &
+                "id_detalle as 'ID de detalle de venta', " &
+                "P.nombre as 'Producto', " &
+                "cantidad as 'Cantidad', " &
+                "precio_unitario as 'Precio unitario', " &
+                "total as 'Total' " &
+                "from Ventas as V " &
+                "natural join Detalle_ventas as D " &
+                "natural join Clientes as C " &
+                "inner join Productos as P on " &
+                "D.id_producto = P.id_producto " &
+                "where id_venta = '" & venta & "' " &
+                "order by id_venta, id_detalle;"
 
             Dim cmd As New MySqlCommand(SQL, conexion)
             cmd.CommandType = CommandType.Text
@@ -30,13 +58,13 @@ Public Class FormVentas
             Try
                 Dim lectura As MySqlDataReader = cmd.ExecuteReader()
                 If lectura.Read = True Then
-                    Me.ct_idVenta.Text = lectura("id_venta").ToString()
-                    Me.ct_idDetalleVenta.Text = lectura("id_detalle").ToString()
-                    Me.ct_idCliente.Text = lectura("id_cliente").ToString()
-                    Me.ct_idProducto.Text = lectura("id_producto").ToString()
-                    Me.ct_cantidad.Text = lectura("cantidad").ToString()
-                    Me.ct_precio.Text = lectura("precio_unitario").ToString()
-                    Me.ct_total.Text = lectura("total").ToString()
+                    Me.ct_idVenta.Text = lectura("ID de venta").ToString()
+                    Me.ct_idDetalleVenta.Text = lectura("ID de detalle").ToString()
+                    Me.comboBoxCliente.Text = lectura("Cliente").ToString()
+                    Me.comboBoxProducto.Text = lectura("Producto").ToString()
+                    Me.ct_cantidad.Text = lectura("Cantidad").ToString()
+                    Me.ct_precio.Text = lectura("Precio unitario").ToString()
+                    Me.ct_total.Text = lectura("Total").ToString()
                     Me.dtp_fecha.Text = lectura("fecha_venta").ToString()
                 End If
 
@@ -57,15 +85,15 @@ Public Class FormVentas
 
     Private Sub btGuardar_Click(sender As Object, e As EventArgs) Handles btGuardar.Click
         ' Revisar que todos los campos contengan algo antes de continuar
-        If ct_idCliente.Text = "" Then
+        If comboBoxCliente.Text = "" Then
             MessageBox.Show("Digite el ID del cliente")
-            ct_idCliente.Focus()
+            comboBoxCliente.Focus()
             Exit Sub
         End If
 
-        If ct_idProducto.Text = "" Then
+        If comboBoxProducto.Text = "" Then
             MessageBox.Show("Digite el ID del producto")
-            ct_idProducto.Focus()
+            comboBoxProducto.Focus()
             Exit Sub
         End If
 
@@ -95,15 +123,30 @@ Public Class FormVentas
         End If
 
 
-        ' Orden SQL para conseguir las ventas que coincidan con el ID de venta en la caja de texto (si lo hubiera)
-        Dim SQL As String = "select id_venta " &
-            "from Ventas " &
-            "WHERE id_venta = '" & ct_idVenta.Text & "'"
+        ' Conseguir el ID del cliente para guardar/actualizar despues
+        Dim SQL As String = "select id_cliente " &
+            "from clientes " &
+            "where nombre = '" & comboBoxCliente.Text & "';"
 
         Dim cmd As New MySqlCommand(SQL, conexion)
         cmd.CommandType = CommandType.Text
 
         Dim lectura As MySqlDataReader = cmd.ExecuteReader()
+        Dim IDCliente As String = ""
+        If lectura.Read() Then
+            IDCliente = lectura.GetInt32(0).ToString()
+        End If
+
+        lectura.Close()
+
+        ' Orden SQL para conseguir las ventas que coincidan con el ID de venta en la caja de texto (si lo hubiera)
+        SQL = "select id_venta " &
+            "from Ventas " &
+            "WHERE id_venta = '" & ct_idVenta.Text & "'"
+
+        cmd.CommandText = SQL
+
+        lectura = cmd.ExecuteReader()
         Dim tipoModificacion As String
 
         ' Si se encuentra alguna coincidencia de ventas, actualizar el registro; de otra forma, insertarlo
@@ -111,7 +154,7 @@ Public Class FormVentas
             tipoModificacion = "Actualizado"
 
             SQL = "UPDATE Ventas " &
-                "set id_cliente = '" & ct_idCliente.Text & "', " &
+                "set id_cliente = '" & IDCliente & "', " &
                 "fecha_venta = '" & dtp_fecha.Text & "', " &
                 "total = '" & ct_total.Text & "' " &
                 "where id_venta = '" & ct_idVenta.Text & "'"
@@ -121,7 +164,7 @@ Public Class FormVentas
             SQL = "INSERT INTO Ventas values" &
                 "(null," &
                 "'" & dtp_fecha.Text & "', " &
-                "'" & ct_idCliente.Text & "', " &
+                "'" & IDCliente & "', " &
                 "'" & ct_total.Text & "')"
         End If
 
@@ -175,16 +218,44 @@ Public Class FormVentas
 
             ' Si el detalle de venta ya existe, actualizarlo; De otra forma, insertarlo
             If lectura.HasRows Then
+                lectura.Close()
+
+                SQL = "select id_producto " &
+                    "from productos " &
+                    "where nombre = '" & comboBoxProducto.Text & "';"
+
+                cmd.CommandText = SQL
+
+                lectura = cmd.ExecuteReader()
+                Dim IDProducto As String = ""
+                If lectura.Read() Then
+                    IDProducto = lectura.GetInt32(0).ToString()
+                End If
+
                 SQL = "UPDATE Detalle_ventas " &
-                    "set id_producto = '" & ct_idProducto.Text & "', " &
+                    "set id_producto = '" & IDProducto & "', " &
                     "cantidad = '" & ct_cantidad.Text & "', " &
                     "precio_unitario = '" & ct_precio.Text & "' " &
                     "where id_detalle = '" & ct_idDetalleVenta.Text & "'"
             Else
+                lectura.Close()
+
+                SQL = "select id_producto " &
+                    "from productos " &
+                    "where nombre = '" & detalleVenta.Producto & "';"
+
+                cmd.CommandText = SQL
+
+                lectura = cmd.ExecuteReader()
+                Dim IDProducto As String = ""
+                If lectura.Read() Then
+                    IDProducto = lectura.GetInt32(0).ToString()
+                End If
+
                 SQL = "INSERT INTO Detalle_ventas values " &
                     "(null, " &
                     "'" & idVenta & "', " &
-                    "'" & detalleVenta.idProducto & "', " &
+                    "'" & IDProducto & "', " &
                     "'" & detalleVenta.cantidad & "', " &
                     "'" & detalleVenta.precioUnitario & "')"
             End If
@@ -207,7 +278,22 @@ Public Class FormVentas
         listaDetalleVentas = New List(Of DetalleVenta)
 
         ' Cargar nuevamente la tabla con los datos actualizados
-        SQL = "SELECT * from Ventas natural join Detalle_ventas order by id_venta, id_detalle"
+        SQL = "select " &
+            "id_venta as 'ID de venta', " &
+            "C.nombre as 'Cliente', " &
+            "fecha_venta as 'Fecha de venta', " &
+            "id_detalle as 'ID de detalle de venta', " &
+            "P.nombre as 'Producto', " &
+            "cantidad as 'Cantidad', " &
+            "precio_unitario as 'Precio unitario', " &
+            "total as 'Total' " &
+            "from Ventas as V " &
+            "natural join Detalle_ventas as D " &
+            "natural join Clientes as C " &
+            "inner join Productos as P on " &
+            "D.id_producto = P.id_producto " &
+            "order by id_venta, id_detalle;"
+
         DataGridView1.DataSource = Cargar_grid(SQL, conexion)
     End Sub
 
@@ -261,7 +347,22 @@ Public Class FormVentas
         LimpiarTextoCompleto()
 
         ' Cargar de nuevo la tabla con lo datos actualizados
-        SQL = "SELECT * from Ventas natural join Detalle_ventas order by id_venta, id_detalle"
+        SQL = "select " &
+            "id_venta as 'ID de venta', " &
+            "C.nombre as 'Cliente', " &
+            "fecha_venta as 'Fecha de venta', " &
+            "id_detalle as 'ID de detalle de venta', " &
+            "P.nombre as 'Producto', " &
+            "cantidad as 'Cantidad', " &
+            "precio_unitario as 'Precio unitario', " &
+            "total as 'Total' " &
+            "from Ventas as V " &
+            "natural join Detalle_ventas as D " &
+            "natural join Clientes as C " &
+            "inner join Productos as P on " &
+            "D.id_producto = P.id_producto " &
+            "order by id_venta, id_detalle;"
+
         DataGridView1.DataSource = Cargar_grid(SQL, conexion)
     End Sub
 
@@ -295,14 +396,14 @@ Public Class FormVentas
     Private Sub LimpiarTextoCompleto()
         Me.ct_idVenta.Text = ""
         Me.ct_idDetalleVenta.Text = ""
-        Me.ct_idCliente.Text = ""
-        Me.ct_idProducto.Text = ""
+        Me.comboBoxCliente.Text = ""
+        Me.comboBoxProducto.Text = ""
         Me.ct_cantidad.Text = ""
         Me.ct_precio.Text = ""
         Me.ct_total.Text = ""
         Me.dtp_fecha.Text = ""
 
-        Me.ct_idProducto.Focus()
+        Me.comboBoxProducto.Focus()
     End Sub
 
     Private Function AgregarDetalleVentas() As Boolean
@@ -312,11 +413,7 @@ Public Class FormVentas
         Dim idVenta As Integer
         Integer.TryParse(ct_idVenta.Text, idVenta)
 
-        Dim idProducto As Integer
-        If Not Integer.TryParse(ct_idProducto.Text, idProducto) Then
-            MessageBox.Show("El ID debe ser un numero entero")
-            Return False
-        End If
+        Dim Producto As String = comboBoxProducto.Text
 
         Dim cantidad As Integer
         If Not Integer.TryParse(ct_cantidad.Text, cantidad) Then
@@ -324,13 +421,15 @@ Public Class FormVentas
             Return False
         End If
 
-        Dim precioUnitario As Decimal
-        If Not Decimal.TryParse(ct_precio.Text, precioUnitario) Then
+        Dim subtotal As Decimal
+        If Not Decimal.TryParse(ct_precio.Text, subtotal) Then
             MessageBox.Show("El precio debe ser un numero")
             Return False
         End If
 
-        Dim detalleVenta As New DetalleVenta(idDetalleVenta, idVenta, idProducto, cantidad, precioUnitario)
+        Dim precioUnitario = subtotal / cantidad
+
+        Dim detalleVenta As New DetalleVenta(idDetalleVenta, idVenta, Producto, cantidad, precioUnitario)
         listaDetalleVentas.Add(detalleVenta)
 
         Return True
@@ -338,7 +437,7 @@ Public Class FormVentas
 
     Private Sub LimpiarTextoDetalleVentas()
         Me.ct_idDetalleVenta.Text = ""
-        Me.ct_idProducto.Text = ""
+        Me.comboBoxProducto.Text = ""
         Me.ct_cantidad.Text = ""
         Me.ct_precio.Text = ""
     End Sub
@@ -352,4 +451,107 @@ Public Class FormVentas
 
         Return -1
     End Function
+
+    Private Sub InicializarProductos()
+        Dim orden As String = "select nombre from productos"
+        Dim campo As String = "nombre"
+
+        Dim dataReader As MySqlDataReader = Nothing
+        Try
+            Dim comando As New MySqlCommand(orden, conexion)
+            dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            If dataReader IsNot Nothing And Not dataReader.IsClosed Then
+                dataReader.Close()
+            End If
+
+            Exit Sub
+        End Try
+
+        While dataReader.Read()
+            comboBoxProducto.Items.Add(dataReader.GetString(campo))
+        End While
+
+        dataReader.Close()
+    End Sub
+
+    Private Sub InicializarClientes()
+        Dim orden As String = "select nombre from clientes"
+        Dim campo As String = "nombre"
+
+        Dim dataReader As MySqlDataReader = Nothing
+        Try
+            Dim comando As New MySqlCommand(orden, conexion)
+            dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            If dataReader IsNot Nothing And Not dataReader.IsClosed Then
+                dataReader.Close()
+            End If
+
+            Exit Sub
+        End Try
+
+        While dataReader.Read()
+            comboBoxCliente.Items.Add(dataReader.GetString(campo))
+        End While
+
+        dataReader.Close()
+    End Sub
+
+    Private Sub comboBoxProducto_TextChanged(sender As Object, e As EventArgs) Handles comboBoxProducto.TextChanged
+        If comboBoxProducto.Text = "" Then
+            ct_precio.Text = "0"
+        Else
+            ActualizarPrecio()
+        End If
+    End Sub
+
+    Private Sub ActualizarPrecio()
+        Dim SQL As String = "select precio_venta " &
+            "from productos " &
+            "where nombre = '" & comboBoxProducto.Text & "';"
+
+        Dim cmd As New MySqlCommand(SQL, conexion)
+        cmd.CommandType = CommandType.Text
+
+        Dim lectura As MySqlDataReader = cmd.ExecuteReader()
+        Dim precioVenta As Single = 0
+        If lectura.Read() Then
+            precioVenta = lectura.GetFloat(0)
+        End If
+
+        lectura.Close()
+
+        Dim cantidad As Integer
+        Integer.TryParse(ct_cantidad.Text, cantidad)
+
+        Dim subtotal = precioVenta * cantidad
+
+        ct_precio.Text = subtotal.ToString()
+    End Sub
+
+    Private Sub ct_cantidad_TextChanged(sender As Object, e As EventArgs) Handles ct_cantidad.TextChanged
+        If ct_cantidad.Text = "" Then
+            ct_precio.Text = "0"
+        Else
+            ActualizarPrecio()
+        End If
+    End Sub
+
+    Private Sub ct_precio_TextChanged(sender As Object, e As EventArgs) Handles ct_precio.TextChanged
+        ActualizarTotal()
+    End Sub
+
+    Private Sub ActualizarTotal()
+        Dim total As Single
+        Single.TryParse(ct_precio.Text, total)
+
+        Dim subtotal As Single
+        For Each detalleVenta As DetalleVenta In listaDetalleVentas
+            subtotal = detalleVenta.precioUnitario * detalleVenta.cantidad
+            total += subtotal
+        Next
+
+        ct_total.Text = total.ToString()
+    End Sub
 End Class
