@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "L:\\Documents\\Visual Studio\\SGBD II\\Practica Visual Basic\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9EA491BB-C413-424E-9BF3-2059D2FDFA47}|Practica Visual Basic\\Practica Visual Basic.vbproj|l:\\documents\\visual studio\\sgbd ii\\practica visual basic\\practica visual basic\\formcompras.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{9EA491BB-C413-424E-9BF3-2059D2FDFA47}|Practica Visual Basic\\Practica Visual Basic.vbproj|solutionrelative:practica visual basic\\formcompras.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9EA491BB-C413-424E-9BF3-2059D2FDFA47}|Practica Visual Basic\\Practica Visual Basic.vbproj|l:\\documents\\visual studio\\sgbd ii\\practica visual basic\\practica visual basic\\formproductos.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{9EA491BB-C413-424E-9BF3-2059D2FDFA47}|Practica Visual Basic\\Practica Visual Basic.vbproj|solutionrelative:practica visual basic\\formproductos.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9EA491BB-C413-424E-9BF3-2059D2FDFA47}|Practica Visual Basic\\Practica Visual Basic.vbproj|l:\\documents\\visual studio\\sgbd ii\\practica visual basic\\practica visual basic\\formcompras.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{9EA491BB-C413-424E-9BF3-2059D2FDFA47}|Practica Visual Basic\\Practica Visual Basic.vbproj|solutionrelative:practica visual basic\\formcompras.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9EA491BB-C413-424E-9BF3-2059D2FDFA47}|Practica Visual Basic\\Practica Visual Basic.vbproj|l:\\documents\\visual studio\\sgbd ii\\practica visual basic\\practica visual basic\\formcompras.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{9EA491BB-C413-424E-9BF3-2059D2FDFA47}|Practica Visual Basic\\Practica Visual Basic.vbproj|solutionrelative:practica visual basic\\formcompras.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9EA491BB-C413-424E-9BF3-2059D2FDFA47}|Practica Visual Basic\\Practica Visual Basic.vbproj|l:\\documents\\visual studio\\sgbd ii\\practica visual basic\\practica visual basic\\module1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
@@ -34,23 +34,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "FormProductos.vb",
               "DocumentMoniker": "L:\\Documents\\Visual Studio\\SGBD II\\Practica Visual Basic\\Practica Visual Basic\\FormProductos.vb",
               "RelativeDocumentMoniker": "Practica Visual Basic\\FormProductos.vb",
               "ToolTip": "L:\\Documents\\Visual Studio\\SGBD II\\Practica Visual Basic\\Practica Visual Basic\\FormProductos.vb",
               "RelativeToolTip": "Practica Visual Basic\\FormProductos.vb",
-              "ViewState": "AQIAACYBAAAAAAAAAAAxwAAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAKYAAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-11-14T22:50:45.186Z"
+              "WhenOpened": "2024-11-14T22:50:45.186Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "FormCompras.vb",
+              "DocumentMoniker": "L:\\Documents\\Visual Studio\\SGBD II\\Practica Visual Basic\\Practica Visual Basic\\FormCompras.vb",
+              "RelativeDocumentMoniker": "Practica Visual Basic\\FormCompras.vb",
+              "ToolTip": "L:\\Documents\\Visual Studio\\SGBD II\\Practica Visual Basic\\Practica Visual Basic\\FormCompras.vb",
+              "RelativeToolTip": "Practica Visual Basic\\FormCompras.vb",
+              "ViewState": "AQIAABkAAAAAAAAAAAAgwBgBAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-11-08T01:03:58.457Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "FormCompras.vb [Design]",
               "DocumentMoniker": "L:\\Documents\\Visual Studio\\SGBD II\\Practica Visual Basic\\Practica Visual Basic\\FormCompras.vb",
               "RelativeDocumentMoniker": "Practica Visual Basic\\FormCompras.vb",
@@ -71,18 +85,6 @@
               "ViewState": "AQIAABMAAAAAAAAAAAAgwCMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2024-11-09T02:28:37.921Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FormCompras.vb",
-              "DocumentMoniker": "L:\\Documents\\Visual Studio\\SGBD II\\Practica Visual Basic\\Practica Visual Basic\\FormCompras.vb",
-              "RelativeDocumentMoniker": "Practica Visual Basic\\FormCompras.vb",
-              "ToolTip": "L:\\Documents\\Visual Studio\\SGBD II\\Practica Visual Basic\\Practica Visual Basic\\FormCompras.vb",
-              "RelativeToolTip": "Practica Visual Basic\\FormCompras.vb",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-11-08T01:03:58.457Z"
             },
             {
               "$type": "Document",

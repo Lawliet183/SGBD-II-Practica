@@ -7,11 +7,26 @@ Public Class FormCompras
 
     Private Sub FormCompras_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         conexion = FormMenuPrincipal.ConseguirConexion()
-        Dim SQL As String = "SELECT * from Compras " &
-            "natural join Detalle_compras " &
-            "order by id_compra asc, id_detalle_compra asc;"
+        Dim SQL As String = "select " &
+            "id_compra as 'ID de compra', " &
+            "Prov.nombre as 'Proveedor', " &
+            "fecha_compra as 'Fecha de compra', " &
+            "id_detalle_compra as 'ID de detalle de compra', " &
+            "Prod.nombre as 'Producto', " &
+            "cantidad as 'Cantidad', " &
+            "D.precio_compra as 'Precio de compra', " &
+            "total as 'Total' " &
+            "from Compras as C " &
+            "natural join Detalle_compras as D " &
+            "natural join Proveedores as Prov " &
+            "inner join Productos as Prod on " &
+            "D.id_producto = Prod.id_producto " &
+            "order by id_compra, id_detalle_compra;"
 
         DataGridView1.DataSource = Cargar_grid(SQL, conexion)
+
+        InicializarProveedores()
+        InicializarProductos()
     End Sub
 
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
@@ -32,8 +47,8 @@ Public Class FormCompras
                 If lectura.Read = True Then
                     Me.ct_idCompra.Text = lectura("id_compra").ToString()
                     Me.ct_idDetalleCompra.Text = lectura("id_detalle_compra").ToString()
-                    Me.ct_idProveedor.Text = lectura("id_proveedor").ToString()
-                    Me.ct_idProducto.Text = lectura("id_producto").ToString()
+                    'Me.ct_.Text = lectura("id_proveedor").ToString()
+                    'Me.ct_.Text = lectura("id_producto").ToString()
                     Me.ct_cantidad.Text = lectura("cantidad").ToString()
                     Me.ct_precio.Text = lectura("precio_compra").ToString()
                     Me.ct_total.Text = lectura("total").ToString()
@@ -58,27 +73,27 @@ Public Class FormCompras
     Private Sub LimpiarTextoCompleto()
         Me.ct_idCompra.Text = ""
         Me.ct_idDetalleCompra.Text = ""
-        Me.ct_idProveedor.Text = ""
-        Me.ct_idProducto.Text = ""
+        Me.comboBoxProveedor.Text = ""
+        Me.comboBoxProducto.Text = ""
         Me.ct_cantidad.Text = ""
         Me.ct_precio.Text = ""
         Me.ct_total.Text = ""
         Me.dtp_fecha.Text = ""
 
-        Me.ct_idProducto.Focus()
+        Me.comboBoxProducto.Focus()
     End Sub
 
     Private Sub btGuardar_Click(sender As Object, e As EventArgs) Handles btGuardar.Click
         ' Revisar que todos los campos contengan algo antes de continuar
-        If ct_idProveedor.Text = "" Then
+        If comboBoxProveedor.Text = "" Then
             MessageBox.Show("Digite el ID del proveedor")
-            ct_idProveedor.Focus()
+            comboBoxProveedor.Focus()
             Exit Sub
         End If
 
-        If ct_idProducto.Text = "" Then
+        If comboBoxProducto.Text = "" Then
             MessageBox.Show("Digite el ID del producto")
-            ct_idProducto.Focus()
+            comboBoxProducto.Focus()
             Exit Sub
         End If
 
@@ -124,7 +139,7 @@ Public Class FormCompras
             tipoModificacion = "Actualizado"
 
             SQL = "UPDATE Compras " &
-                "set id_proveedor = '" & ct_idProveedor.Text & "', " &
+                "set id_proveedor = '" & 'ct_idProveedor.Text & "', " &
                 "fecha_compra = '" & dtp_fecha.Text & "', " &
                 "total = '" & ct_total.Text & "' " &
                 "where id_compra = '" & ct_idCompra.Text & "'"
@@ -133,7 +148,7 @@ Public Class FormCompras
 
             SQL = "INSERT INTO Compras values" &
                 "(null," &
-                "'" & ct_idProveedor.Text & "', " &
+                "'" & 'ct_idProveedor.Text & "', " &
                 "'" & dtp_fecha.Text & "', " &
                 "'" & ct_total.Text & "')"
         End If
@@ -189,7 +204,7 @@ Public Class FormCompras
             ' Si el detalle de compra ya existe, actualizarlo; De otra forma, insertarlo
             If lectura.HasRows Then
                 SQL = "UPDATE Detalle_compras " &
-                    "set id_producto = '" & ct_idProducto.Text & "', " &
+                    "set id_producto = '" & 'ct_idProducto.Text & "', " &
                     "cantidad = '" & ct_cantidad.Text & "', " &
                     "precio_compra = '" & ct_precio.Text & "' " &
                     "where id_detalle_compra = '" & ct_idDetalleCompra.Text & "'"
@@ -220,7 +235,22 @@ Public Class FormCompras
         listaDetalleCompras = New List(Of DetalleCompra)
 
         ' Cargar nuevamente la tabla con los datos actualizados
-        SQL = "SELECT * from Compras natural join Detalle_compras order by id_compra, id_detalle_compra"
+        SQL = "select " &
+            "id_compra as 'ID de compra', " &
+            "Prov.nombre as 'Proveedor', " &
+            "fecha_compra as 'Fecha de compra', " &
+            "id_detalle_compra as 'ID de detalle de compra', " &
+            "Prod.nombre as 'Producto', " &
+            "cantidad as 'Cantidad', " &
+            "D.precio_compra as 'Precio de compra', " &
+            "total as 'Total' " &
+            "from Compras as C " &
+            "natural join Detalle_compras as D " &
+            "natural join Proveedores as Prov " &
+            "inner join Productos as Prod on " &
+            "D.id_producto = Prod.id_producto " &
+            "order by id_compra, id_detalle_compra;"
+
         DataGridView1.DataSource = Cargar_grid(SQL, conexion)
     End Sub
 
@@ -233,10 +263,10 @@ Public Class FormCompras
         Integer.TryParse(ct_idCompra.Text, idCompra)
 
         Dim idProducto As Integer
-        If Not Integer.TryParse(ct_idProducto.Text, idProducto) Then
-            MessageBox.Show("El ID debe ser un numero entero")
-            Return False
-        End If
+        'If Not Integer.TryParse(ct_idProducto.Text, idProducto) Then
+        'MessageBox.Show("El ID debe ser un numero entero")
+        ' Return False
+        'End If
 
         Dim cantidad As Integer
         If Not Integer.TryParse(ct_cantidad.Text, cantidad) Then
@@ -258,7 +288,7 @@ Public Class FormCompras
 
     Private Sub LimpiarTextoDetalleCompras()
         Me.ct_idDetalleCompra.Text = ""
-        Me.ct_idProducto.Text = ""
+        'Me.ct_idProducto.Text = ""
         Me.ct_cantidad.Text = ""
         Me.ct_precio.Text = ""
     End Sub
@@ -346,11 +376,72 @@ Public Class FormCompras
         LimpiarTextoCompleto()
 
         ' Cargar de nuevo la tabla con lo datos actualizados
-        SQL = "SELECT * from Compras natural join Detalle_compras order by id_compra, id_detalle_compra"
+        SQL = "select " &
+            "id_compra as 'ID de compra', " &
+            "Prov.nombre as 'Proveedor', " &
+            "fecha_compra as 'Fecha de compra', " &
+            "id_detalle_compra as 'ID de detalle de compra', " &
+            "Prod.nombre as 'Producto', " &
+            "cantidad as 'Cantidad', " &
+            "D.precio_compra as 'Precio de compra', " &
+            "total as 'Total' " &
+            "from Compras as C " &
+            "natural join Detalle_compras as D " &
+            "natural join Proveedores as Prov " &
+            "inner join Productos as Prod on " &
+            "D.id_producto = Prod.id_producto " &
+            "order by id_compra, id_detalle_compra;"
+
         DataGridView1.DataSource = Cargar_grid(SQL, conexion)
     End Sub
 
     Private Sub btSalir_Click(sender As Object, e As EventArgs) Handles btSalir.Click
         Me.Close()
+    End Sub
+
+    Private Sub InicializarProveedores()
+        Dim orden As String = "select nombre from proveedores"
+        Dim campo As String = "nombre"
+
+        Dim dataReader As MySqlDataReader = Nothing
+        Try
+            Dim comando As New MySqlCommand(orden, conexion)
+            dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            If dataReader IsNot Nothing And Not dataReader.IsClosed Then
+                dataReader.Close()
+            End If
+
+            Exit Sub
+        End Try
+
+        While dataReader.Read()
+            comboBoxProveedor.Items.Add(dataReader.GetString(campo))
+        End While
+
+        dataReader.Close()
+    End Sub
+
+    Private Sub InicializarProductos()
+        Dim orden As String = "select nombre from productos"
+        Dim campo As String = "nombre"
+
+        Dim dataReader As MySqlDataReader = Nothing
+        Try
+            Dim comando As New MySqlCommand(orden, conexion)
+            dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            If dataReader IsNot Nothing And Not dataReader.IsClosed Then
+                dataReader.Close()
+            End If
+
+            Exit Sub
+        End Try
+
+        While dataReader.Read()
+            comboBoxProveedor.Items.Add(dataReader.GetString(campo))
+        End While
+
+        dataReader.Close()
     End Sub
 End Class

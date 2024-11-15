@@ -30,8 +30,20 @@ Public Class FormProductos
             Dim producto As String = Convert.ToString(DataGridView1.Rows(e.RowIndex).Cells(0).Value)
 
             ' Orden SQL para conseguir el producto que se ha seleccionado
-            Dim SQL As String = "SELECT * FROM Productos " &
-                "WHERE id_producto = '" & producto & "'"
+            Dim SQL As String = "select " &
+                "Prod.id_producto as 'ID de producto', " &
+                "Prod.nombre as 'Producto', " &
+                "Prod.descripcion as 'Descripcion', " &
+                "Prod.precio_compra as 'Precio de compra', " &
+                "Prod.porcentaje_ganancia as 'Porcentaje de ganancia', " &
+                "Prod.precio_venta as 'Precio de venta', " &
+                "Prod.stock as 'Stock', " &
+                "Prod.stock_minimo as 'Stock minimo', " &
+                "Prov.nombre as 'Proveedor' " &
+                "from Productos as Prod " &
+                "inner join Proveedores as Prov on " &
+                "Prod.id_proveedor = Prov.id_proveedor " &
+                "where Prod.id_producto = '" & producto & "';"
 
             Dim cmd As New MySqlCommand(SQL, conexion)
             cmd.CommandType = CommandType.Text
@@ -39,15 +51,15 @@ Public Class FormProductos
             Try
                 Dim lectura As MySqlDataReader = cmd.ExecuteReader()
                 If lectura.Read = True Then
-                    Me.ct_idProducto.Text = lectura("id_producto").ToString()
-                    Me.ct_nombre.Text = lectura("nombre").ToString()
-                    Me.ct_descripcion.Text = lectura("descripcion").ToString()
-                    Me.ct_precioCompra.Text = lectura("precio_compra").ToString()
-                    Me.ct_porcentajeGanancia.Text = lectura("porcentaje_ganancia").ToString()
-                    Me.ct_precioVenta.Text = lectura("precio_venta").ToString()
-                    Me.ct_stock.Text = lectura("stock").ToString()
-                    Me.ct_stockMinimo.Text = lectura("stock_minimo").ToString()
-                    Me.comboBoxProveedor.Text = lectura("id_proveedor").ToString()
+                    Me.ct_idProducto.Text = lectura("ID de producto").ToString()
+                    Me.ct_nombre.Text = lectura("Producto").ToString()
+                    Me.ct_descripcion.Text = lectura("Descripcion").ToString()
+                    Me.ct_precioCompra.Text = lectura("Precio de compra").ToString()
+                    Me.ct_porcentajeGanancia.Text = lectura("Porcentaje de ganancia").ToString()
+                    Me.ct_precioVenta.Text = lectura("Precio de venta").ToString()
+                    Me.ct_stock.Text = lectura("Stock").ToString()
+                    Me.ct_stockMinimo.Text = lectura("Stock minimo").ToString()
+                    Me.comboBoxProveedor.Text = lectura("Proveedor").ToString()
                 End If
 
                 lectura.Close()
