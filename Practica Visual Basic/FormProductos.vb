@@ -6,8 +6,22 @@ Public Class FormProductos
 
     Private Sub FormProductos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         conexion = FormMenuPrincipal.ConseguirConexion()
-        Dim SQL As String = "SELECT * from Productos order by id_producto asc"
+        Dim SQL As String = "select " &
+            "Prod.id_producto as 'ID de producto', " &
+            "Prod.nombre as 'Producto', " &
+            "Prod.descripcion as 'Descripcion', " &
+            "Prod.precio_compra as 'Precio de compra', " &
+            "Prod.porcentaje_ganancia as 'Porcentaje de ganancia', " &
+            "Prod.stock as 'Stock', " &
+            "Prod.stock_minimo as 'Stock minimo', " &
+            "Prov.nombre as 'Proveedor' " &
+            "from Productos as Prod " &
+            "inner join Proveedores as Prov on " &
+            "Prod.id_proveedor = Prov.id_proveedor;"
+
         DataGridView1.DataSource = Cargar_grid(SQL, conexion)
+
+        InicializarProveedores()
     End Sub
 
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
@@ -33,7 +47,7 @@ Public Class FormProductos
                     Me.ct_precioVenta.Text = lectura("precio_venta").ToString()
                     Me.ct_stock.Text = lectura("stock").ToString()
                     Me.ct_stockMinimo.Text = lectura("stock_minimo").ToString()
-                    Me.ct_idProveedor.Text = lectura("id_proveedor").ToString()
+                    Me.comboBoxProveedor.Text = lectura("id_proveedor").ToString()
                 End If
 
                 lectura.Close()
@@ -56,7 +70,7 @@ Public Class FormProductos
         Me.ct_precioVenta.Text = ""
         Me.ct_stock.Text = ""
         Me.ct_stockMinimo.Text = ""
-        Me.ct_idProveedor.Text = ""
+        Me.comboBoxProveedor.Text = ""
 
         Me.ct_nombre.Focus()
     End Sub
@@ -105,9 +119,9 @@ Public Class FormProductos
             Exit Sub
         End If
 
-        If ct_idProveedor.Text = "" Then
-            MessageBox.Show("Digite el ID de proveedor")
-            ct_idProveedor.Focus()
+        If comboBoxProveedor.Text = "" Then
+            MessageBox.Show("Seleccione el proveedor")
+            comboBoxProveedor.Focus()
             Exit Sub
         End If
 
@@ -125,15 +139,29 @@ Public Class FormProductos
         End If
 
 
-        ' Orden SQL para conseguir los productos que coincidan con el ID de producto en la caja de texto (si lo hubiera)
-        Dim SQL As String = "select id_producto " &
-            "from Productos " &
-            "WHERE id_producto = '" & ct_idProducto.Text & "'"
+        Dim SQL As String = "select id_proveedor " &
+            "from proveedores " &
+            "where nombre = '" & comboBoxProveedor.Text & "';"
 
         Dim cmd As New MySqlCommand(SQL, conexion)
         cmd.CommandType = CommandType.Text
 
         Dim lectura As MySqlDataReader = cmd.ExecuteReader()
+        Dim IDProveedor As String = ""
+        If lectura.Read() Then
+            IDProveedor = lectura.GetInt32(0).ToString()
+        End If
+
+        lectura.Close()
+
+        ' Orden SQL para conseguir los productos que coincidan con el ID de producto en la caja de texto (si lo hubiera)
+        SQL = "select id_producto " &
+            "from Productos " &
+            "WHERE id_producto = '" & ct_idProducto.Text & "'"
+
+        cmd.CommandText = SQL
+
+        lectura = cmd.ExecuteReader()
         Dim tipoModificacion As String
 
         ' Si la orden SQL retorno algo, se actualiza el registro (UPDATE); 
@@ -148,7 +176,7 @@ Public Class FormProductos
                 "precio_venta='" & ct_precioVenta.Text & "'," &
                 "stock='" & ct_stock.Text & "'," &
                 "stock_minimo='" & ct_stockMinimo.Text & "'," &
-                "id_proveedor='" & ct_idProveedor.Text & "'" &
+                "id_proveedor='" & IDProveedor & "'" &
                 "where id_producto='" & ct_idProducto.Text & "'"
         Else
             tipoModificacion = "Guardado"
@@ -161,7 +189,7 @@ Public Class FormProductos
                 "'" & ct_precioVenta.Text & "'," &
                 "'" & ct_stock.Text & "'," &
                 "'" & ct_stockMinimo.Text & "'," &
-                "'" & ct_idProveedor.Text & "')"
+                "'" & IDProveedor & "')"
         End If
 
         lectura.Close()
@@ -180,7 +208,19 @@ Public Class FormProductos
         LimpiarTexto()
 
         ' Cargar nuevamente la tabla con los datos actualizados
-        SQL = "SELECT * from Productos order by id_producto"
+        SQL = "select " &
+            "Prod.id_producto as 'ID de producto', " &
+            "Prod.nombre as 'Producto', " &
+            "Prod.descripcion as 'Descripcion', " &
+            "Prod.precio_compra as 'Precio de compra', " &
+            "Prod.porcentaje_ganancia as 'Porcentaje de ganancia', " &
+            "Prod.stock as 'Stock', " &
+            "Prod.stock_minimo as 'Stock minimo', " &
+            "Prov.nombre as 'Proveedor' " &
+            "from Productos as Prod " &
+            "inner join Proveedores as Prov on " &
+            "Prod.id_proveedor = Prov.id_proveedor;"
+
         DataGridView1.DataSource = Cargar_grid(SQL, conexion)
     End Sub
 
@@ -216,11 +256,78 @@ Public Class FormProductos
         LimpiarTexto()
 
         ' Cargar de nuevo la tabla con lo datos actualizados
-        SQL = "SELECT * from Productos order by id_producto"
+        SQL = "select " &
+            "Prod.id_producto as 'ID de producto', " &
+            "Prod.nombre as 'Producto', " &
+            "Prod.descripcion as 'Descripcion', " &
+            "Prod.precio_compra as 'Precio de compra', " &
+            "Prod.porcentaje_ganancia as 'Porcentaje de ganancia', " &
+            "Prod.stock as 'Stock', " &
+            "Prod.stock_minimo as 'Stock minimo', " &
+            "Prov.nombre as 'Proveedor' " &
+            "from Productos as Prod " &
+            "inner join Proveedores as Prov on " &
+            "Prod.id_proveedor = Prov.id_proveedor;"
+
         DataGridView1.DataSource = Cargar_grid(SQL, conexion)
     End Sub
 
     Private Sub btSalir_Click(sender As Object, e As EventArgs) Handles btSalir.Click
         Me.Close()
+    End Sub
+
+    Private Sub ct_precioCompra_TextChanged(sender As Object, e As EventArgs) Handles ct_precioCompra.TextChanged
+        If ct_precioVenta.Text = "" Then
+            ct_porcentajeGanancia.Text = "0"
+        Else
+            Dim precioCompra As Single
+            Single.TryParse(ct_precioCompra.Text, precioCompra)
+
+            Dim precioVenta As Single
+            Single.TryParse(ct_precioVenta.Text, precioVenta)
+
+            Dim porcentajeGanancia As Single = ((precioVenta * 100) / (precioCompra)) - 100
+
+            ct_porcentajeGanancia.Text = porcentajeGanancia.ToString()
+        End If
+    End Sub
+
+    Private Sub ct_precioVenta_TextChanged(sender As Object, e As EventArgs) Handles ct_precioVenta.TextChanged
+        If ct_precioCompra.Text = "" Then
+            ct_porcentajeGanancia.Text = "0"
+        Else
+            Dim precioCompra As Single
+            Single.TryParse(ct_precioCompra.Text, precioCompra)
+
+            Dim precioVenta As Single
+            Single.TryParse(ct_precioVenta.Text, precioVenta)
+
+            Dim porcentajeGanancia As Single = ((precioVenta * 100) / (precioCompra)) - 100
+
+            ct_porcentajeGanancia.Text = porcentajeGanancia.ToString()
+        End If
+    End Sub
+
+    Private Sub InicializarProveedores()
+        Dim orden As String = "select nombre from proveedores"
+        Dim campo As String = "nombre"
+
+        Dim dataReader As MySqlDataReader = Nothing
+        Try
+            Dim comando As New MySqlCommand(orden, conexion)
+            dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            If dataReader IsNot Nothing And Not dataReader.IsClosed Then
+                dataReader.Close()
+            End If
+
+            Exit Sub
+        End Try
+
+        While dataReader.Read()
+            comboBoxProveedor.Items.Add(dataReader.GetString(campo))
+        End While
+
+        dataReader.Close()
     End Sub
 End Class

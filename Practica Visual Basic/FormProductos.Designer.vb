@@ -29,7 +29,6 @@ Partial Class FormProductos
         ct_precioVenta = New TextBox()
         ct_descripcion = New TextBox()
         ct_nombre = New TextBox()
-        ct_idProveedor = New TextBox()
         ct_stock = New TextBox()
         ct_precioCompra = New TextBox()
         ct_stockMinimo = New TextBox()
@@ -46,6 +45,7 @@ Partial Class FormProductos
         Label8 = New Label()
         Label9 = New Label()
         btSalir = New Button()
+        comboBoxProveedor = New ComboBox()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -88,13 +88,6 @@ Partial Class FormProductos
         ct_nombre.Size = New Size(194, 27)
         ct_nombre.TabIndex = 4
         ' 
-        ' ct_idProveedor
-        ' 
-        ct_idProveedor.Location = New Point(313, 500)
-        ct_idProveedor.Name = "ct_idProveedor"
-        ct_idProveedor.Size = New Size(194, 27)
-        ct_idProveedor.TabIndex = 5
-        ' 
         ' ct_stock
         ' 
         ct_stock.Location = New Point(313, 434)
@@ -120,6 +113,7 @@ Partial Class FormProductos
         ' 
         ct_porcentajeGanancia.Location = New Point(313, 368)
         ct_porcentajeGanancia.Name = "ct_porcentajeGanancia"
+        ct_porcentajeGanancia.ReadOnly = True
         ct_porcentajeGanancia.Size = New Size(194, 27)
         ct_porcentajeGanancia.TabIndex = 9
         ' 
@@ -216,11 +210,11 @@ Partial Class FormProductos
         ' Label9
         ' 
         Label9.AutoSize = True
-        Label9.Location = New Point(186, 503)
+        Label9.Location = New Point(227, 503)
         Label9.Name = "Label9"
-        Label9.Size = New Size(121, 20)
+        Label9.Size = New Size(80, 20)
         Label9.TabIndex = 21
-        Label9.Text = "ID de proveedor:"
+        Label9.Text = "Proveedor:"
         ' 
         ' btSalir
         ' 
@@ -231,11 +225,20 @@ Partial Class FormProductos
         btSalir.Text = "Salir"
         btSalir.UseVisualStyleBackColor = True
         ' 
+        ' comboBoxProveedor
+        ' 
+        comboBoxProveedor.FormattingEnabled = True
+        comboBoxProveedor.Location = New Point(313, 500)
+        comboBoxProveedor.Name = "comboBoxProveedor"
+        comboBoxProveedor.Size = New Size(194, 28)
+        comboBoxProveedor.TabIndex = 23
+        ' 
         ' FormProductos
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 558)
+        Controls.Add(comboBoxProveedor)
         Controls.Add(btSalir)
         Controls.Add(Label9)
         Controls.Add(Label8)
@@ -252,7 +255,6 @@ Partial Class FormProductos
         Controls.Add(ct_stockMinimo)
         Controls.Add(ct_precioCompra)
         Controls.Add(ct_stock)
-        Controls.Add(ct_idProveedor)
         Controls.Add(ct_nombre)
         Controls.Add(ct_descripcion)
         Controls.Add(ct_precioVenta)
@@ -270,7 +272,6 @@ Partial Class FormProductos
     Friend WithEvents ct_precioVenta As TextBox
     Friend WithEvents ct_descripcion As TextBox
     Friend WithEvents ct_nombre As TextBox
-    Friend WithEvents ct_idProveedor As TextBox
     Friend WithEvents ct_stock As TextBox
     Friend WithEvents ct_precioCompra As TextBox
     Friend WithEvents ct_stockMinimo As TextBox
@@ -287,4 +288,5 @@ Partial Class FormProductos
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents btSalir As Button
+    Friend WithEvents comboBoxProveedor As ComboBox
 End Class

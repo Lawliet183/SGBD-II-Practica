@@ -26,7 +26,6 @@ Partial Class FormCompras
     Private Sub InitializeComponent()
         DataGridView1 = New DataGridView()
         ct_idCompra = New TextBox()
-        ct_idProveedor = New TextBox()
         ct_total = New TextBox()
         btNuevo = New Button()
         btGuardar = New Button()
@@ -35,7 +34,6 @@ Partial Class FormCompras
         Label2 = New Label()
         Label3 = New Label()
         dtp_fecha = New DateTimePicker()
-        ct_idProducto = New TextBox()
         ct_precio = New TextBox()
         ct_cantidad = New TextBox()
         Label4 = New Label()
@@ -45,6 +43,8 @@ Partial Class FormCompras
         btMas = New Button()
         btMenos = New Button()
         btSalir = New Button()
+        comboBoxProveedor = New ComboBox()
+        comboBoxProducto = New ComboBox()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -66,17 +66,11 @@ Partial Class FormCompras
         ct_idCompra.TabIndex = 1
         ct_idCompra.Visible = False
         ' 
-        ' ct_idProveedor
-        ' 
-        ct_idProveedor.Location = New Point(201, 239)
-        ct_idProveedor.Name = "ct_idProveedor"
-        ct_idProveedor.Size = New Size(165, 27)
-        ct_idProveedor.TabIndex = 2
-        ' 
         ' ct_total
         ' 
         ct_total.Location = New Point(133, 349)
         ct_total.Name = "ct_total"
+        ct_total.ReadOnly = True
         ct_total.Size = New Size(165, 27)
         ct_total.TabIndex = 4
         ' 
@@ -143,17 +137,11 @@ Partial Class FormCompras
         dtp_fecha.Size = New Size(250, 27)
         dtp_fecha.TabIndex = 11
         ' 
-        ' ct_idProducto
-        ' 
-        ct_idProducto.Location = New Point(201, 293)
-        ct_idProducto.Name = "ct_idProducto"
-        ct_idProducto.Size = New Size(125, 27)
-        ct_idProducto.TabIndex = 12
-        ' 
         ' ct_precio
         ' 
         ct_precio.Location = New Point(623, 293)
         ct_precio.Name = "ct_precio"
+        ct_precio.ReadOnly = True
         ct_precio.Size = New Size(125, 27)
         ct_precio.TabIndex = 13
         ' 
@@ -226,11 +214,29 @@ Partial Class FormCompras
         btSalir.Text = "Salir"
         btSalir.UseVisualStyleBackColor = True
         ' 
+        ' comboBoxProveedor
+        ' 
+        comboBoxProveedor.FormattingEnabled = True
+        comboBoxProveedor.Location = New Point(201, 239)
+        comboBoxProveedor.Name = "comboBoxProveedor"
+        comboBoxProveedor.Size = New Size(165, 28)
+        comboBoxProveedor.TabIndex = 22
+        ' 
+        ' comboBoxProducto
+        ' 
+        comboBoxProducto.FormattingEnabled = True
+        comboBoxProducto.Location = New Point(201, 293)
+        comboBoxProducto.Name = "comboBoxProducto"
+        comboBoxProducto.Size = New Size(125, 28)
+        comboBoxProducto.TabIndex = 23
+        ' 
         ' FormCompras
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(899, 502)
+        Controls.Add(comboBoxProducto)
+        Controls.Add(comboBoxProveedor)
         Controls.Add(btSalir)
         Controls.Add(btMenos)
         Controls.Add(btMas)
@@ -240,7 +246,6 @@ Partial Class FormCompras
         Controls.Add(Label4)
         Controls.Add(ct_cantidad)
         Controls.Add(ct_precio)
-        Controls.Add(ct_idProducto)
         Controls.Add(dtp_fecha)
         Controls.Add(Label3)
         Controls.Add(Label2)
@@ -249,7 +254,6 @@ Partial Class FormCompras
         Controls.Add(btGuardar)
         Controls.Add(btNuevo)
         Controls.Add(ct_total)
-        Controls.Add(ct_idProveedor)
         Controls.Add(ct_idCompra)
         Controls.Add(DataGridView1)
         Name = "FormCompras"
@@ -261,7 +265,6 @@ Partial Class FormCompras
 
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents ct_idCompra As TextBox
-    Friend WithEvents ct_idProveedor As TextBox
     Friend WithEvents ct_total As TextBox
     Friend WithEvents btNuevo As Button
     Friend WithEvents btGuardar As Button
@@ -270,7 +273,6 @@ Partial Class FormCompras
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents dtp_fecha As DateTimePicker
-    Friend WithEvents ct_idProducto As TextBox
     Friend WithEvents ct_precio As TextBox
     Friend WithEvents ct_cantidad As TextBox
     Friend WithEvents Label4 As Label
@@ -280,4 +282,6 @@ Partial Class FormCompras
     Friend WithEvents btMas As Button
     Friend WithEvents btMenos As Button
     Friend WithEvents btSalir As Button
+    Friend WithEvents comboBoxProveedor As ComboBox
+    Friend WithEvents comboBoxProducto As ComboBox
 End Class
