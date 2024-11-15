@@ -35,9 +35,22 @@ Public Class FormCompras
             Dim compra As String = Convert.ToString(DataGridView1.Rows(e.RowIndex).Cells(0).Value)
 
             ' Orden SQL para conseguir la compra que se ha seleccionado
-            Dim SQL As String = "SELECT * FROM Compras " &
-                "natural join Detalle_compras " &
-                "WHERE id_compra = '" & compra & "'"
+            Dim SQL As String = "select " &
+                "id_compra as 'ID de compra', " &
+                "Prov.nombre as 'Proveedor', " &
+                "fecha_compra as 'Fecha de compra', " &
+                "id_detalle_compra as 'ID de detalle de compra', " &
+                "Prod.nombre as 'Producto', " &
+                "cantidad as 'Cantidad', " &
+                "D.precio_compra as 'Precio de compra', " &
+                "total as 'Total' " &
+                "from Compras as C " &
+                "natural join Detalle_compras as D " &
+                "natural join Proveedores as Prov " &
+                "inner join Productos as Prod on " &
+                "D.id_producto = Prod.id_producto " &
+                "where C.id_compra = '" & compra & "' " &
+                "order by id_compra, id_detalle_compra;"
 
             Dim cmd As New MySqlCommand(SQL, conexion)
             cmd.CommandType = CommandType.Text
@@ -45,14 +58,14 @@ Public Class FormCompras
             Try
                 Dim lectura As MySqlDataReader = cmd.ExecuteReader()
                 If lectura.Read = True Then
-                    Me.ct_idCompra.Text = lectura("id_compra").ToString()
-                    Me.ct_idDetalleCompra.Text = lectura("id_detalle_compra").ToString()
-                    'Me.ct_.Text = lectura("id_proveedor").ToString()
-                    'Me.ct_.Text = lectura("id_producto").ToString()
-                    Me.ct_cantidad.Text = lectura("cantidad").ToString()
-                    Me.ct_precio.Text = lectura("precio_compra").ToString()
-                    Me.ct_total.Text = lectura("total").ToString()
-                    Me.dtp_fecha.Text = lectura("fecha_compra").ToString()
+                    Me.ct_idCompra.Text = lectura("ID de compra").ToString()
+                    Me.ct_idDetalleCompra.Text = lectura("ID de detalle de compra").ToString()
+                    Me.comboBoxProveedor.Text = lectura("Proveedor").ToString()
+                    Me.comboBoxProducto.Text = lectura("Producto").ToString()
+                    Me.ct_cantidad.Text = lectura("Cantidad").ToString()
+                    Me.ct_precio.Text = lectura("Precio de compra").ToString()
+                    Me.ct_total.Text = lectura("Total").ToString()
+                    Me.dtp_fecha.Text = lectura("Fecha de compra").ToString()
                 End If
 
                 lectura.Close()
@@ -123,15 +136,30 @@ Public Class FormCompras
         End If
 
 
-        ' Orden SQL para conseguir las compras que coincidan con el ID de compra en la caja de texto (si lo hubiera)
-        Dim SQL As String = "select id_compra " &
-            "from Compras " &
-            "WHERE id_compra = '" & ct_idCompra.Text & "'"
+        ' Conseguir el ID del proveedor para guardar/actualizar despues
+        Dim SQL As String = "select id_proveedor " &
+            "from proveedores " &
+            "where nombre = '" & comboBoxProveedor.Text & "';"
 
         Dim cmd As New MySqlCommand(SQL, conexion)
         cmd.CommandType = CommandType.Text
 
         Dim lectura As MySqlDataReader = cmd.ExecuteReader()
+        Dim IDProveedor As String = ""
+        If lectura.Read() Then
+            IDProveedor = lectura.GetInt32(0).ToString()
+        End If
+
+        lectura.Close()
+
+        ' Orden SQL para conseguir las compras que coincidan con el ID de compra en la caja de texto (si lo hubiera)
+        SQL = "select id_compra " &
+            "from Compras " &
+            "WHERE id_compra = '" & ct_idCompra.Text & "'"
+
+        cmd.CommandText = SQL
+
+        lectura = cmd.ExecuteReader()
         Dim tipoModificacion As String
 
         ' Si se encuentra alguna coincidencia de compras, actualizar el registro; de otra forma, insertarlo
@@ -139,7 +167,7 @@ Public Class FormCompras
             tipoModificacion = "Actualizado"
 
             SQL = "UPDATE Compras " &
-                "set id_proveedor = '" & 'ct_idProveedor.Text & "', " &
+                "set id_proveedor = '" & IDProveedor & "', " &
                 "fecha_compra = '" & dtp_fecha.Text & "', " &
                 "total = '" & ct_total.Text & "' " &
                 "where id_compra = '" & ct_idCompra.Text & "'"
@@ -148,7 +176,7 @@ Public Class FormCompras
 
             SQL = "INSERT INTO Compras values" &
                 "(null," &
-                "'" & 'ct_idProveedor.Text & "', " &
+                "'" & IDProveedor & "', " &
                 "'" & dtp_fecha.Text & "', " &
                 "'" & ct_total.Text & "')"
         End If
@@ -203,16 +231,44 @@ Public Class FormCompras
 
             ' Si el detalle de compra ya existe, actualizarlo; De otra forma, insertarlo
             If lectura.HasRows Then
+                lectura.Close()
+
+                SQL = "select id_producto " &
+                    "from productos " &
+                    "where nombre = '" & comboBoxProducto.Text & "';"
+
+                cmd.CommandText = SQL
+
+                lectura = cmd.ExecuteReader()
+                Dim IDProducto As String = ""
+                If lectura.Read() Then
+                    IDProducto = lectura.GetInt32(0).ToString()
+                End If
+
                 SQL = "UPDATE Detalle_compras " &
-                    "set id_producto = '" & 'ct_idProducto.Text & "', " &
+                    "set id_producto = '" & IDProducto & "', " &
                     "cantidad = '" & ct_cantidad.Text & "', " &
                     "precio_compra = '" & ct_precio.Text & "' " &
                     "where id_detalle_compra = '" & ct_idDetalleCompra.Text & "'"
             Else
+                lectura.Close()
+
+                SQL = "select id_producto " &
+                    "from productos " &
+                    "where nombre = '" & detalleCompra.Producto & "';"
+
+                cmd.CommandText = SQL
+
+                lectura = cmd.ExecuteReader()
+                Dim IDProducto As String = ""
+                If lectura.Read() Then
+                    IDProducto = lectura.GetInt32(0).ToString()
+                End If
+
                 SQL = "INSERT INTO Detalle_compras values " &
                     "(null, " &
                     "'" & idCompra & "', " &
-                    "'" & detalleCompra.idProducto & "', " &
+                    "'" & IDProducto & "', " &
                     "'" & detalleCompra.cantidad & "', " &
                     "'" & detalleCompra.precioCompra & "')"
             End If
@@ -262,11 +318,7 @@ Public Class FormCompras
         Dim idCompra As Integer
         Integer.TryParse(ct_idCompra.Text, idCompra)
 
-        Dim idProducto As Integer
-        'If Not Integer.TryParse(ct_idProducto.Text, idProducto) Then
-        'MessageBox.Show("El ID debe ser un numero entero")
-        ' Return False
-        'End If
+        Dim Producto As String = comboBoxProducto.Text
 
         Dim cantidad As Integer
         If Not Integer.TryParse(ct_cantidad.Text, cantidad) Then
@@ -274,13 +326,15 @@ Public Class FormCompras
             Return False
         End If
 
-        Dim precioCompra As Decimal
-        If Not Decimal.TryParse(ct_precio.Text, precioCompra) Then
+        Dim subtotal As Decimal
+        If Not Decimal.TryParse(ct_precio.Text, subTotal) Then
             MessageBox.Show("El precio debe ser un numero")
             Return False
         End If
 
-        Dim detalleCompra As New DetalleCompra(idDetalleCompra, idCompra, idProducto, cantidad, precioCompra)
+        Dim precioCompra = subtotal / cantidad
+
+        Dim detalleCompra As New DetalleCompra(idDetalleCompra, idCompra, Producto, cantidad, precioCompra)
         listaDetalleCompras.Add(detalleCompra)
 
         Return True
@@ -288,7 +342,7 @@ Public Class FormCompras
 
     Private Sub LimpiarTextoDetalleCompras()
         Me.ct_idDetalleCompra.Text = ""
-        'Me.ct_idProducto.Text = ""
+        Me.comboBoxProducto.Text = ""
         Me.ct_cantidad.Text = ""
         Me.ct_precio.Text = ""
     End Sub
@@ -439,9 +493,66 @@ Public Class FormCompras
         End Try
 
         While dataReader.Read()
-            comboBoxProveedor.Items.Add(dataReader.GetString(campo))
+            comboBoxProducto.Items.Add(dataReader.GetString(campo))
         End While
 
         dataReader.Close()
+    End Sub
+
+    Private Sub comboBoxProducto_TextChanged(sender As Object, e As EventArgs) Handles comboBoxProducto.TextChanged
+        If comboBoxProducto.Text = "" Then
+            ct_precio.Text = "0"
+        Else
+            ActualizarPrecio()
+        End If
+    End Sub
+
+    Private Sub ActualizarPrecio()
+        Dim SQL As String = "select precio_compra " &
+            "from productos " &
+            "where nombre = '" & comboBoxProducto.Text & "';"
+
+        Dim cmd As New MySqlCommand(SQL, conexion)
+        cmd.CommandType = CommandType.Text
+
+        Dim lectura As MySqlDataReader = cmd.ExecuteReader()
+        Dim precioCompra As Single = 0
+        If lectura.Read() Then
+            precioCompra = lectura.GetFloat(0)
+        End If
+
+        lectura.Close()
+
+        Dim cantidad As Integer
+        Integer.TryParse(ct_cantidad.Text, cantidad)
+
+        Dim subTotal = precioCompra * cantidad
+
+        ct_precio.Text = subTotal.ToString()
+    End Sub
+
+    Private Sub ct_cantidad_TextChanged(sender As Object, e As EventArgs) Handles ct_cantidad.TextChanged
+        If ct_cantidad.Text = "" Then
+            ct_precio.Text = "0"
+        Else
+            ActualizarPrecio()
+        End If
+    End Sub
+
+    Private Sub ct_precio_TextChanged(sender As Object, e As EventArgs) Handles ct_precio.TextChanged
+        ActualizarTotal()
+    End Sub
+
+    Private Sub ActualizarTotal()
+        Dim total As Single
+        Single.TryParse(ct_precio.Text, total)
+
+        Dim subtotal As Single
+        For Each detalleCompra As DetalleCompra In listaDetalleCompras
+            subtotal = detalleCompra.precioCompra * detalleCompra.cantidad
+            total += subtotal
+        Next
+
+        ct_total.Text = total.ToString()
     End Sub
 End Class

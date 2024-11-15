@@ -104,11 +104,11 @@ Partial Class FormCompras
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Location = New Point(74, 242)
+        Label1.Location = New Point(115, 242)
         Label1.Name = "Label1"
-        Label1.Size = New Size(121, 20)
+        Label1.Size = New Size(80, 20)
         Label1.TabIndex = 8
-        Label1.Text = "ID de proveedor:"
+        Label1.Text = "Proveedor:"
         ' 
         ' Label2
         ' 
@@ -155,11 +155,11 @@ Partial Class FormCompras
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(82, 296)
+        Label4.Location = New Point(123, 296)
         Label4.Name = "Label4"
-        Label4.Size = New Size(113, 20)
+        Label4.Size = New Size(72, 20)
         Label4.TabIndex = 15
-        Label4.Text = "ID de producto:"
+        Label4.Text = "Producto:"
         ' 
         ' Label5
         ' 

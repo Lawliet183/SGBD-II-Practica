@@ -12,6 +12,7 @@ Public Class FormProductos
             "Prod.descripcion as 'Descripcion', " &
             "Prod.precio_compra as 'Precio de compra', " &
             "Prod.porcentaje_ganancia as 'Porcentaje de ganancia', " &
+            "Prod.precio_venta as 'Precio de venta', " &
             "Prod.stock as 'Stock', " &
             "Prod.stock_minimo as 'Stock minimo', " &
             "Prov.nombre as 'Proveedor' " &
@@ -151,6 +152,7 @@ Public Class FormProductos
         End If
 
 
+        ' Conseguir el ID del proveedor para guardar/actualizar despues
         Dim SQL As String = "select id_proveedor " &
             "from proveedores " &
             "where nombre = '" & comboBoxProveedor.Text & "';"
@@ -226,6 +228,7 @@ Public Class FormProductos
             "Prod.descripcion as 'Descripcion', " &
             "Prod.precio_compra as 'Precio de compra', " &
             "Prod.porcentaje_ganancia as 'Porcentaje de ganancia', " &
+            "Prod.precio_venta as 'Precio de venta', " &
             "Prod.stock as 'Stock', " &
             "Prod.stock_minimo as 'Stock minimo', " &
             "Prov.nombre as 'Proveedor' " &
@@ -274,6 +277,7 @@ Public Class FormProductos
             "Prod.descripcion as 'Descripcion', " &
             "Prod.precio_compra as 'Precio de compra', " &
             "Prod.porcentaje_ganancia as 'Porcentaje de ganancia', " &
+            "Prod.precio_venta as 'Precio de venta', " &
             "Prod.stock as 'Stock', " &
             "Prod.stock_minimo as 'Stock minimo', " &
             "Prov.nombre as 'Proveedor' " &
@@ -292,15 +296,7 @@ Public Class FormProductos
         If ct_precioVenta.Text = "" Then
             ct_porcentajeGanancia.Text = "0"
         Else
-            Dim precioCompra As Single
-            Single.TryParse(ct_precioCompra.Text, precioCompra)
-
-            Dim precioVenta As Single
-            Single.TryParse(ct_precioVenta.Text, precioVenta)
-
-            Dim porcentajeGanancia As Single = ((precioVenta * 100) / (precioCompra)) - 100
-
-            ct_porcentajeGanancia.Text = porcentajeGanancia.ToString()
+            ActualizarPorcentajeDeGanancia()
         End If
     End Sub
 
@@ -308,16 +304,20 @@ Public Class FormProductos
         If ct_precioCompra.Text = "" Then
             ct_porcentajeGanancia.Text = "0"
         Else
-            Dim precioCompra As Single
-            Single.TryParse(ct_precioCompra.Text, precioCompra)
-
-            Dim precioVenta As Single
-            Single.TryParse(ct_precioVenta.Text, precioVenta)
-
-            Dim porcentajeGanancia As Single = ((precioVenta * 100) / (precioCompra)) - 100
-
-            ct_porcentajeGanancia.Text = porcentajeGanancia.ToString()
+            ActualizarPorcentajeDeGanancia()
         End If
+    End Sub
+
+    Private Sub ActualizarPorcentajeDeGanancia()
+        Dim precioCompra As Single
+        Single.TryParse(ct_precioCompra.Text, precioCompra)
+
+        Dim precioVenta As Single
+        Single.TryParse(ct_precioVenta.Text, precioVenta)
+
+        Dim porcentajeGanancia As Single = ((precioVenta * 100) / (precioCompra)) - 100
+
+        ct_porcentajeGanancia.Text = porcentajeGanancia.ToString()
     End Sub
 
     Private Sub InicializarProveedores()
